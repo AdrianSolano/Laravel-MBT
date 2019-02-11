@@ -1,8 +1,7 @@
-@extends('public.layout')
+@extends('layouts.app')
 
-@section('title','faq')
+@section('title', 'About IBDB')
 
 @section('content')
 <h1>FAQ</h1>
-
 @endsection

@@ -20,3 +20,7 @@ Route::get('/privacypolicy', 'PagesController@privacypolicy')->name('privacypoli
 
 
 Route::resource('/tanks','TanksController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
