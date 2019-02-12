@@ -11,13 +11,13 @@
         <div class="card-header">
             {{ $tank->name }}
         </div>
-
         <div class="card-body" >
             <h5 class="card-subtitle ">Nation: {{ $tank->nation }}</h5>
             <h6 class="card-subtitle ">Crew: {{ $tank->crew }}</h6>
-            <h6 class="card-subtitle ">HP: {{ $tank->hp }}</h7>
+            <h6 class="card-subtitle ">HP:( {{ $tank->hp }} )</h7>
             <p class="card-text">{{ str_limit($tank->description, 100) }}</p>
             <p class="card-text">
+
 
             <form action="/tanks/{{ $tank->id }}" method="post" class="mr-2 float-right">
                 @csrf
@@ -30,8 +30,11 @@
       </div>
     </div>
   </div>
+
     @empty
+
       <p>No hay tanques</p>
+
     @endforelse
 
 
