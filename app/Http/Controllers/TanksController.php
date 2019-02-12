@@ -15,9 +15,9 @@ class TanksController extends Controller
        */
       public function index()
       {
-          $tanks = Tank::paginate(10);
+          $tank = Tank::paginate(5);
 
-          return view('public.tanks.index');
+          return view('public.tanks.index')->with('tank', $tank);
       }
 
       /**
