@@ -19,7 +19,7 @@ class CreateTanksTable extends Migration
           $table->string('nation');
           $table->tinyInteger('crew');
           $table->mediumInteger('hp');
-          $table->smallInteger('ammo');
+          $table->string('ammo');
           $table->text('type')->nullable();
           $table->string('mainweapon');
           $table->string('secondaryweapon');

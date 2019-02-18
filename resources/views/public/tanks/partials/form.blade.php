@@ -1,14 +1,3 @@
-<!-- $table->increments('id');
-$table->string('name');
-$table->string('nation');
-$table->tinyInteger('crew');
-$table->mediumInteger('hp');
-$table->smallInteger('ammo');
-$table->text('type');
-$table->string('mainweapon');
-$table->string('secondaryweapon');
-$table->longText('description');
-$table->timestamps(); -->
 
 <div class="form-group">
     <label for="name">Name</label>
@@ -49,7 +38,7 @@ $table->timestamps(); -->
 </div>
 
 <div class="form-group">
-    <label for="ammo">Amount of ammo</label>
+    <label for="ammo">Type of ammo</label>
     <input type="text" class="form-control {{ $errors->has('ammo')?"is-invalid":"" }}" id="ammo" name="ammo" placeholder="Introduce the tank ammo" value="{{ isset($tank)?$tank->ammo:old('ammo') }}"required>
     @if( $errors->has('ammo'))
     <div class="invalid-feedback">
