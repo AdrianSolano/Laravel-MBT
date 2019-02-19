@@ -3,7 +3,7 @@
 @section('title', 'Ammo MBT!')
 
 @section('content')
-<h1>Example of type of ammo</h1>
+<h1>Example of ammo</h1>
 <div class="offset-3 col-6 pt-4 pb-4">
     
     <div class="card-group">
