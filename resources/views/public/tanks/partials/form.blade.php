@@ -45,8 +45,8 @@
      <input type="text" class="form-control {{ $errors->has('ammo')?"is-invalid":"" }}" id="ammo" name="ammo" placeholder="Introduce the tank ammo" value="{{ isset($tank)?$tank->ammo:old('ammo') }}"required>
     
     <div class="input-group-append">
-        <button type="button" class="btn btn-outline-secondary" href="#">New Ammo</button>
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-outline-primary" href="#">New Ammo</button>
+        <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
         </button>
         <div class="dropdown-menu">

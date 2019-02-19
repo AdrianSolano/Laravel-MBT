@@ -49,7 +49,6 @@
 
 
                     <!-- Right Side Of Navbar -->
-                    
                     <ul class="navbar-nav ml-auto">
                         @auth
                         <li class="nav-item">
@@ -65,6 +64,28 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/privacypolicy">Privacy</a>
                         </li>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="fa fa-cog fa-fw fa-lg"></i></a></li>
+                        <li class="dropdown order-1">
+                            <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-principal dropdown-toggle">Login</button>
+                            <ul class="dropdown-menu dropdown-menu-right mt-2">
+                                <li class="px-3 py-2">
+                                <form class="form" role="form">
+                                    <div class="form-group">
+                                        <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="text" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="text" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    </ul>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
