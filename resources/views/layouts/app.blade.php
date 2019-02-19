@@ -49,6 +49,7 @@
 
 
                     <!-- Right Side Of Navbar -->
+                    
                     <ul class="navbar-nav ml-auto">
                         @auth
                         <li class="nav-item">

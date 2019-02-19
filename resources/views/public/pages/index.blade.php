@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About IBDB')
+@section('title', 'Index MBT!')
 
 @section('content')
 <h1>Root</h1>

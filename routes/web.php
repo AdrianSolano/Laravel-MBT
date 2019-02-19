@@ -17,6 +17,7 @@ Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/faq', 'PagesController@faq')->name('faq');;
 Route::get('/privacypolicy', 'PagesController@privacypolicy')->name('privacypolicy');
+Route::get('/ammo', 'PagesController@ammo')->name('ammo');
 
 
 Route::resource('/tanks','TanksController');

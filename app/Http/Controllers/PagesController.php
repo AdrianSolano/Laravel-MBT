@@ -28,4 +28,8 @@ class PagesController extends Controller
     {
       return view('public.pages.privacypolicy');
     }
+    public function ammo()
+    {
+      return view('public.pages.exampleAmmo');
+    }
 }

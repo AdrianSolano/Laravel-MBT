@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About IBDB')
+@section('title', 'Contact MBT!')
 
 @section('content')
 <h1>Contact</h1>
