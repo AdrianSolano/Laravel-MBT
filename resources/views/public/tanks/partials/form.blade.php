@@ -98,7 +98,7 @@
 
 <div class="form-group">
     <label for="description">Description</label>
-    <textarea class="form-control {{ $errors->has('description')?"is-invalid":"" }}" id="description" name="description" rows="10" placeholder="Tank Description" required>{{ isset($tank)?$tank->description:old('description') }}</textarea>
+    <textarea class="form-control {{ $errors->has('description')?"is-invalid":"" }}" id="description" name="description" rows="3" placeholder="Tank Description" required>{{ isset($tank)?$tank->description:old('description') }}</textarea>
     @if( $errors->has('description'))
     <div class="invalid-feedback">
         {{ $errors->first('description') }}
