@@ -28,7 +28,7 @@
 </div>
 </div>
 <div class="form-row">
-<div class="form-group col-md-6">
+<div class="form-group col-md-4">
     <label for="hp">Horsepower</label>
     <input type="text" class="form-control {{ $errors->has('hp')?"is-invalid":"" }}" id="hp" name="hp" placeholder="Introduce the tank hp" value="{{ isset($tank)?$tank->hp:old('hp') }}"required>
     @if( $errors->has('hp'))
@@ -38,7 +38,7 @@
     @endif
 </div>
 
-<div class="form-group col-md-6">
+<div class="form-group col-md-4">
 <label for="hp">Ammo</label>
 <div class="input-group">
 
