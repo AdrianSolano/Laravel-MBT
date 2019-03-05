@@ -64,7 +64,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/privacypolicy">Privacy</a>
                         </li>
-                <ul class="navbar-nav ml-auto">
+                <!-- <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                     <a href="#" class="nav-link"><i class="fa fa-cog fa-fw fa-lg"></i></a></li>
                         <li class="dropdown order-1">
@@ -85,7 +85,7 @@
                             </li>
                         </ul>
                     </li>
-                    </ul>
+                    </ul> -->
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
