@@ -13,15 +13,18 @@
 
 //Estaticas
 Route::get('/', 'PagesController@index')->name('root');
-Route::get('/contact', 'PagesController@contact')->name('contact');
+Route::get('/contact', 'PagesController@contact')->name('contact')->middleware('auth');;
 Route::get('/about', 'PagesController@about')->name('about');
-Route::get('/faq', 'PagesController@faq')->name('faq');;
+Route::get('/faq', 'PagesController@faq')->name('faq');
 Route::get('/privacypolicy', 'PagesController@privacypolicy')->name('privacypolicy');
 Route::get('/ammo', 'PagesController@ammo')->name('ammo');
 
 
 Route::resource('/tanks','TanksController');
+Route::resource('/event', 'EventController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/{user}/tank', 'UserTanksController@index')->name('usertank.index');
+

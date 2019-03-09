@@ -21,22 +21,15 @@ class TankRequest extends FormRequest
      *
      * @return array
      */
-     // 'name' => request('name'),
-     // 'slug' => str_slug(request('name'), "-"),
-     // 'nation' => request('nation'),
-     // 'crew' => request('crew'),
-     // 'hp' => request('hp'),
-     // 'ammo' => request('ammo'),
-     // 'type' => request('type'),
-     // 'mainweapon' => request('mainweapon'),
-     // 'secondaryweapon' => request('secondaryweapon'),
-     // 'description' => request('description')
+
      public function rules()
        {
            return [
-               'name'         => 'required|min:2',
-               'nation'        => ['required','min:2'],
-               'description'    => 'required'
+               'name'          => 'required|min:2',
+               'event'         =>  'required|exists:event,id',
+               'ammo'          => ['required','exists:ammo,id'],
+               'nation'        => 'required','min:2',
+               'description'   => 'required'
            ];
        }
 
@@ -45,6 +38,10 @@ class TankRequest extends FormRequest
            return [
                'name.required'=> 'El :attribute es requerido.',
                'name.min' => 'El :attribute debe tener al menos 2 caracteres',
+               'event.required' => 'La :attribute es requerido',
+               'event.exists' => 'Debe introducir un :attribute válido.',
+               'ammo.required'=> 'El :attribute es requerido.',
+               'ammo.exists'    => 'Debe introducir un :attribute ya registrado.',
                'nation.required'=> 'El :attribute es requerido.',
                'nation.min'    => 'El :attribute debe tener al menos 2 caracteres',
                'description.required'=> 'La :attribute es requerida.',
@@ -55,6 +52,8 @@ class TankRequest extends FormRequest
        {
            return [
                'name'     => 'nombre del tanque',
+               'event' => 'evento del tanque',
+               'ammo'    => 'municion del tanque',
                'nation'    => 'nacion del tanque',
                'description' => 'descripción del tanque'
            ];

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAmmoTable extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateAmmoTable extends Migration
      */
     public function up()
     {
-        Schema::create('ammo', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('nameEvent');
             $table->string('slug')->unique();
-            $table->string('typeshells');//Kinetic energy shells and Chemical
+            $table->integer('year');
+            $table->text('description');
             $table->timestamps();
-            
         });
     }
 
@@ -30,6 +30,6 @@ class CreateAmmoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ammo');
+        Schema::dropIfExists('events');
     }
 }

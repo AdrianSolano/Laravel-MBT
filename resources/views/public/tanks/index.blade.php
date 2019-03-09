@@ -12,6 +12,7 @@
             {{ $tank->name }}
         </div>
         <div class="card-body" >
+          <h5 class="card-title">User: <a href="{{ route('usertanks.index', $tank->user->slug) }}" title="{{ $tank->user->name }}'s tank list">{{ $tank->user->name }}</a></h5>
             <h5 class="card-subtitle ">Nation: {{ $tank->nation }}</h5>
             <h6 class="card-subtitle ">Crew: {{ $tank->crew }}</h6>
             <h6 class="card-subtitle ">HP:( {{ $tank->hp }} )</h6>
