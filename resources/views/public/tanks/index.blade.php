@@ -5,37 +5,46 @@
 @section('content')
 <h1>Lista de tanques</h1>
 
-    @forelse($tank as $tank)
-  <div class="card-deck">
+
+@include('public.tanks.partials.bread')
+
+@if(session('message'))
+<div class="alert alert-primary" role="alert">
+    {{ session('message') }}
+</div>
+@endif
+
+@forelse($tank as $tank)
+<div class="card-deck">
     <div class="card">
         <div class="card-header">
             {{ $tank->name }}
         </div>
-        <div class="card-body" >
-          <h5 class="card-title">User: <a href="{{ route('usertanks.index', $tank->user->slug) }}" title="{{ $tank->user->name }}'s tank list">{{ $tank->user->name }}</a></h5>
+        <div class="card-body">
+
+            <div class="col-2">
+                <img class="img-fluid" src="{{ $tank->cover }}" alt="">
+            </div>
+
             <h5 class="card-subtitle ">Nation: {{ $tank->nation }}</h5>
             <h6 class="card-subtitle ">Crew: {{ $tank->crew }}</h6>
             <h6 class="card-subtitle ">HP:( {{ $tank->hp }} )</h6>
             <p class="card-text">{{ str_limit($tank->description, 100) }}</p>
             <p class="card-text">
-          
-            <form action="/tanks/{{ $tank->id }}" method="post" class="mr-2 float-right">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn btn-danger btn-sm">Delete Tank</button>
-            </form>
-            <a href="/tanks/{{ $tank->slug }}" class="btn btn-primary btn-sm mr-2 float-right">More Info</a>
-            <a href="/tanks/{{ $tank->id }}/edit" class="btn btn-warning btn-sm mr-2     float-right">Edit</a>
 
-      </div>
+                @include('public.tanks.partials.buttons')
+                <a href="/tanks/{{ $tank->slug }}" class="btn btn-primary btn-sm mr-2 float-right">More Info</a>
+
+
+        </div>
     </div>
-  </div>
+</div>
 
-    @empty
+@empty
 
-      <p>No hay tanques</p>
+<p>No hay tanques</p>
 
-    @endforelse
+@endforelse
 
 
-@endsection
+@endsection 

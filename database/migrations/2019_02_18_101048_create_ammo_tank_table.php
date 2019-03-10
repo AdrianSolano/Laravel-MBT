@@ -19,7 +19,7 @@ class CreateAmmoTankTable extends Migration
 
             $table->primary(['ammo_id','tank_id']);
 
-            $table->foreign('ammo_id')->references('id')->on('ammo');
+            $table->foreign('ammo_id')->references('id')->on('ammos');
             $table->foreign('tank_id')->references('id')->on('tanks');
         });
     }

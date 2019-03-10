@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Tank;
 use App\Ammo;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\TankRequest;
+use App\Notifications\TankCreated;
 
 class TanksController extends Controller
 {
@@ -15,7 +18,7 @@ class TanksController extends Controller
         $this->middleware('auth', [
             'only' => ['create', 'store', 'edit', 'update', 'destroy']
         ]);
-        $this->middleware('can:touch,tank', [
+        $this->middleware('can:wank,tank', [
             'only' => ['edit', 'update', 'destroy']
         ]);
     }
@@ -28,9 +31,7 @@ class TanksController extends Controller
        */
     public function index()
     {
-        $tank = Tank::with(['user', 'ammo', 'event'])
-            ->latest()
-            ->paginate(10);
+        $tank = Tank::with(['user', 'ammo', 'event'])->latest()->paginate(10);
 
         return view('public.tanks.index')->with('tank', $tank);
     }
@@ -59,7 +60,10 @@ class TanksController extends Controller
        */
 
     public function store(TankRequest $request)
-    {
+    {   
+
+        $cover = $request->file('cover');
+
         $tank = Tank::create([
             'user_id' => $request->user()->id,
             'event_id' => request('event'),
@@ -72,10 +76,14 @@ class TanksController extends Controller
             'type' => request('type'),
             'mainweapon' => request('mainweapon'),
             'secondaryweapon' => request('secondaryweapon'),
-            'description' => request('description')
+            'description' => request('description'),
+            'cover' => ($cover?$cover->store('covers','public'):null),
         ]);
         
         $tank->ammo()->sync( request('ammo') );
+
+        $user = User::find(1);
+        $user->notify(new TankCreated($tank));
 
         return redirect('/');
     }
@@ -120,7 +128,13 @@ class TanksController extends Controller
        * @return \Illuminate\Http\Response
        */
     public function update(TankRequest $request, Tank $tank)
-    {
+    {   
+        $cover = $request->file('cover');
+
+        if( $cover && $tank->cover  ){
+            Storage::disk('public')->delete($tank->cover);
+        }
+
         $tank->update([
             'name' => request('name'),
             'event_id' => request('event'),
@@ -147,7 +161,13 @@ class TanksController extends Controller
        * @return \Illuminate\Http\Response
        */
     public function destroy(Tank $tank)
-    {
+    {   
+
+    
+        if( $tank->cover ){
+            Storage::disk('public')->delete($tank->cover);
+        }
+
         $tank->delete();
         $tank->ammo()->detach();
 

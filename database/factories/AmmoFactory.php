@@ -5,7 +5,7 @@ use Faker\Generator as Faker;
 
 
 $factory->define(Ammo::class, function (Faker $faker) {
-    $name = $faker->words(rand(1,2), true);
+    $name = $faker->words(rand(1,4), true);
     return [
         'name' => $name,
         'slug' => str_slug($name),

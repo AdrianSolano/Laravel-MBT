@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'slug', 'email', 'password',
     ];
 
     /**
@@ -27,4 +27,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function tanks()
+    {
+        return $this->hasMany(Tank::class);
+    }
+
+    public function getFirstNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function owns(Tank $tank)
+    {
+        return $this->id == $tank->user_id;
+    }
 }

@@ -12,11 +12,11 @@ class UserTanksController extends Controller
     public function index($userSlug)
     {
         $user = User::where('slug', $userSlug)->firstOrFail();
-        $tank = $user->tank()->paginate(10);
+        $tanks = $user->tank()->paginate(10);
 
         return view('public.usertanks.index', [
             'user'  => $user,
-            'tank' => $tank
+            'tanks' => $tanks
         ]);
     }
 }

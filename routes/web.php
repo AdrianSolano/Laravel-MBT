@@ -26,5 +26,5 @@ Route::resource('/event', 'EventController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/users/{user}/tank', 'UserTanksController@index')->name('usertank.index');
+/* Route::get('/users/{user}/tanks', 'UserTanksController@index')->name('usertanks.index'); */
 

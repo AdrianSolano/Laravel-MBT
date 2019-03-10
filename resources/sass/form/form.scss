@@ -1,0 +1,33 @@
+@import 'variables';
+
+$listInput: (Normal, Correcto, InCorrecto);
+
+.input{
+	border: solid 2px;
+}
+
+.titulo{
+	color:$colorBordeInputNormal;
+}
+
+@each $input in $listInput {
+	.input#{input}{
+		@extend .input;
+	}
+}
+
+
+.inputCorrecto{
+	border-color: $colorBordeInputCorrecto;
+	background-color: $colorInputCorrecto;
+}
+
+.inputInCorrecto{
+	border-color: $colorBordeInputInCorrecto;
+	background-color: $colorInputInCorrecto;
+}
+
+.inputNormal{
+	border-color: $colorBordeInputNormal;
+	background-color: $colorInputNormal;
+}

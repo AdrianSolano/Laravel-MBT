@@ -15,7 +15,7 @@ class TankPolicy
         if ($user->id == 3) return true;
     }
 
-    public function touch(User $user, Tank $tank)
+    public function wank(User $user, Tank $tank)
     {
         return $tank->user_id == $user->id || $user->id == 2;
     }
