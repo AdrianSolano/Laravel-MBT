@@ -4,7 +4,7 @@ use App\Tank;
 use Faker\Generator as Faker;
 
 $factory->define(App\Tank::class, function (Faker $faker) {
-    $name = ucfirst($faker->words(rand(1,4), true));
+    $name = ucfirst($faker->words(rand(1,5), true));
     return [
         'name'            => $name,
         'user_id'         => random_int(1,2),

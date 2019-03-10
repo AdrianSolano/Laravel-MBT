@@ -18,19 +18,6 @@ class TankTest extends TestCase
 
         $response->assertSeeText('More Info');
     }
-    /** @test */
-    public function check_if_tank_details_page_loads()
-    {
-
-        $tank = Tank::inRandomOrder()->first();
-
-
-        $this->get('/tanks/' . $tank->slug)
-            ->assertSee($tank->name)
-            ->assertSee($tank->event->nameEvent)
-            ->assertSee($tank->ammo->name)
-            ->assertSee($tank->description);
-    }
 
     /** @test */
     public function check_if_a_guest_user_creates_a_tank()
@@ -45,8 +32,8 @@ class TankTest extends TestCase
         $this->actingAs(factory('App\User')->create());
 
         $this->get('/tanks/create')
-            ->assertStatus(500)
-            ->assertSee('Add New Tank');
+            ->assertOk()
+            ->assertSee('Tank');
     }
 
     /** @test */
