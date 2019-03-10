@@ -4,12 +4,6 @@ MainBattleTank(MBT) es una aplicacion desarrollada durante el curso de Desarroll
 
 
 
-###Configuracion del Stock
-
-Para este proyecto se ha utilizado como entorno de desarrollo la herramienta [Laravel Valet](https://laravel.com/docs/5.8/valet) (disponible en OS X y Linux). Si usas Windows se puede recurrir a [Homestead](https://laravel.com/docs/5.8/homestead) a algún otro software de instalación del stack de desarrollo.
-
-
-
 ### Instalación del proyecto
 
 Despues de instalar el stack de desarrollo, se clona el repositorio:
