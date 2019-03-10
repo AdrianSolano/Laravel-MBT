@@ -5,7 +5,7 @@
 <div class="row">
     @if( $tank->cover )
     <div class="col-3">
-        <img class="img-fluid" src="http://ibdb.test/storage/{{ $tank->cover }}" alt="">
+        <img class="img-fluid" src="http://laravel-mbt.test/storage/{{ $tank->cover }}" alt="">
     </div>
     @endif
     <div class="col">
