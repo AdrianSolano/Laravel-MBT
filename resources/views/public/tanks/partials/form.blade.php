@@ -8,6 +8,7 @@
         </div>
         @endif
     </div>
+    <div class="errores"></div>
     <div class="form-group col-md-3">
         <label for="nation">Nation</label>
         <input type="text" class="form-control {{ $errors->has('nation')?"is-invalid":"" }}" id="nation" name="nation" placeholder="Introduce the tank nation" value="{{ isset($tank)?$tank->nation:old('nation') }}" required>
@@ -17,6 +18,7 @@
         </div>
         @endif
     </div>
+    <div class="errores"></div>
     <div class="form-group col-md-3">
         <label for="crew">Crew</label>
         <input type="text" class="form-control {{ $errors->has('crew')?"is-invalid":"" }}" id="crew" name="crew" placeholder="Introduce the tank crew" value="{{ isset($tank)?$tank->crew:old('crew') }}" required>
@@ -27,6 +29,7 @@
         @endif
     </div>
 </div>
+<div class="errores"></div>
 <div class="form-row">
     <div class="form-group col-md-4">
         <label for="hp">Horsepower</label>
@@ -37,9 +40,10 @@
         </div>
         @endif
     </div>
+    <div class="errores"></div>
 
     <div class="form-group col-md-4">
-        <label for="hp">Ammo</label>
+        <label for="ammo">Ammo</label>
         <div class="input-group">
 
             <input type="text" class="form-control {{ $errors->has('ammo')?"is-invalid":"" }}" id="ammo" name="ammo" placeholder="Introduce the tank ammo" value="{{ isset($tank)?$tank->ammo:old('ammo') }}" required>
@@ -60,7 +64,7 @@
         </div>
         @endif
     </div>
-
+    <div class="errores"></div>
 </div>
 <div class="form-row">
     <div class="form-group col-md-3">
@@ -72,7 +76,7 @@
         </div>
         @endif
     </div>
-
+    <div class="errores"></div>
     <div class="form-group col-md-3">
         <label for="mainweapon">Main Weapon</label>
         <input type="text" class="form-control {{ $errors->has('mainweapon')?"is-invalid":"" }}" id="mainweapon" name="mainweapon" placeholder="Tank main weapon" value="{{ isset($tank)?$tank->mainweapon:old('mainweapon') }}" required>
@@ -108,6 +112,7 @@
             @endif
         </div>
     </div>
+    <div class="errores"></div>
     <div>
         <div class="form-group">
             <label for="description">Description</label>
@@ -117,4 +122,11 @@
                 {{ $errors->first('description') }}
             </div>
             @endif
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="term">
+            <label class="form-check-label" for="term">
+                Accept term
+            </label>
         </div> 

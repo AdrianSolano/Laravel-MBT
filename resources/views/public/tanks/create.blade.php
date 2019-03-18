@@ -4,7 +4,7 @@
 
 @section('content')
 <h1>Create Tanks</h1>
-<form action="/tanks" method="post">
+<form id="formulario" action="/tanks" method="post">
 
   @csrf
 
@@ -14,3 +14,6 @@
 </form>
 
 @endsection
+@push('scripts')
+    <script src="{{ mix('/js/validaciones/validacionTanque.js') }}" defer ></script>
+@endpush
