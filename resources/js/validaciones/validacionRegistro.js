@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    $('#name').on("change", function (event) {
+    $('#name').change(function (event) {
         comprobarNombre();
     });
 
