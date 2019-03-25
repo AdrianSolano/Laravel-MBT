@@ -114,16 +114,21 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function comprobarNombre() {
+    var esCorrecto = true;
     var error = [];
     var expresion = /^[a-zA-Z0-9]+$/g;
     var valorNombre = $('#name').val();
 
     if (!expresion.test(valorNombre.value)) {
       error.push("El nombre no permite caracteres como !#@%&");
+      esCorrecto = false;
     }
 
     ;
-    return error;
+    error.forEach(function (x) {
+      return $("#erroresNombre").appendChild(x);
+    });
+    return esCorrecto;
   }
 
   ;
