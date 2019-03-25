@@ -81,124 +81,142 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/validaciones/validacionTanque.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/validaciones/validacionTanque.js ***!
-  \*******************************************************/
+/***/ "./resources/js/validaciones/validacionRegistro.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/validaciones/validacionRegistro.js ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
-  $('#formulario').submit(function (event) {
-    event.preventDefault();
-  });
-  $('#name').change(function (event) {
+  $('#name').on("change", function (event) {
     comprobarNombre();
   });
-  $('#nation').change(function (event) {
-    comprobarNacion();
+  $('#email').change(function (event) {
+    comprobarEmail();
   });
-  $('#crew').change(function (event) {
-    comprobarTripulacion();
+  $('#password').change(function (event) {
+    comprobarContraseña();
   });
-  $('#hp').change(function (event) {
-    comprobarPotencia();
+  $('#password-confirm').change(function (event) {
+    comprobarContraseñaConfirmar();
   });
-  $('#ammo').change(function (event) {
-    comprobarMunicion();
+  $('#gender').change(function (event) {
+    comprobarGenero();
   });
-  $('#type').change(function (event) {});
-  $('#mainweapon').change(function (event) {});
-  $('#secondaryweapon').change(function (event) {});
-  $('#description').change(function (event) {});
-}); //(event)
+  $('#terms').change(function (event) {
+    comprobarCheck();
+  });
 
-function comprobarNombre() {
-  var error = [];
-  var expresion = /^[a-zA-Z0-9]+$/g;
-  var valorNombre = $('#name').val(); //event.target.value
+  function comprobarNombre() {
+    var error = [];
+    var expresion = /^[a-zA-Z0-9]+$/g;
+    var valorNombre = $('#name').val();
 
-  if (!expresion.test(valorNombre.value)) {
-    error.push("El nombre no permite caracteres como !#@%&");
+    if (!expresion.test(valorNombre.value)) {
+      error.push("El nombre no permite caracteres como !#@%&");
+    }
+
+    ;
+    return error;
   }
 
   ;
-  return error;
-}
 
-;
+  function comprobarEmail() {
+    var error = [];
+    var expresion = /^(?:(?:[\w`~!#$%^&*\-=+;:{}'|,?\/]+(?:(?:\.(?:"(?:\\?[\w`~!#$%^&*\-=+;:{}'|,?\/\.()<>\[\] @]|\\"|\\\\)*"|[\w`~!#$%^&*\-=+;:{}'|,?\/]+))*\.[\w`~!#$%^&*\-=+;:{}'|,?\/]+)?)|(?:"(?:\\?[\w`~!#$%^&*\-=+;:{}'|,?\/\.()<>\[\] @]|\\"|\\\\)+"))@(?:[a-zA-Z\d\-]+(?:\.[a-zA-Z\d\-]+)*|\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\])+$/g;
+    var valorEmail = $('email').val();
 
-function comprobarNacion() {
-  var error = [];
-  var expresion = /^[A-Z]+$/g;
-  var valorNacion = $('#nation').val();
-
-  if (!expresion.test(valorNacion.value)) {
-    error.push("Solo se permiten mayusculas con formato UN");
-  }
-
-  return error;
-}
-
-function comprobarTripulacion() {
-  var error = [];
-  var expresion = /^[0-9]+$/g;
-  var valorTripulacion = $('#crew').val();
-
-  if (valorTripulacion > 6) {
-    if (!expresion.test(valorTripulacion.value)) {
-      error.push("Solo se permiten numeros menores que 6");
+    if (!expresion.test(valorEmail.value)) {
+      error.push("El email no permite caracteres como !#%&");
     }
+
+    ;
+    return error;
   }
 
-  return error;
-}
+  ;
 
-function comprobarPotencia() {
-  var error = [];
-  var expresion = /^[0-9]+$/g;
-  var valorPotencia = $('#hp').val();
+  function comprobarContraseña() {
+    var error = [];
+    var expresion = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
+    var valorContraseña = $('#password').val();
 
-  if (valorPotencia > 2000) {
-    if (!expresion.test(valorPotencia.value)) {
-      error.push("Solo se permiten numeros menores que 2000");
+    if (!expresion.test(valorContraseña.value)) {
+      error.push("La contraseña no permite caracteres como !#@%& y mayor a 8 letras/numeros");
     }
+
+    ;
+    return error;
   }
 
-  return error;
-}
+  ;
 
-function comprobarMunicion() {
-  var error = [];
-  var expresion = /^[0-9]+$/g;
-  var valorMunicion = $('#nation').val();
+  function comprobarContraseñaConfirmar() {
+    var error = [];
+    var valorContraseña = $('#password').val();
+    var valorContraseñaConfirmar = $('password-confirm').val();
 
-  if (!expresion.test(valorMunicion.value)) {
-    error.push("Solo numeros");
+    if (!valorContraseñaConfirmar === valorContraseña) {
+      error.push('Las contraseñas no coinciden');
+    }
+
+    ;
+    return error;
   }
 
-  return error;
-}
+  ;
 
-function divErrores() {
-  $(divErrors).appendChild("".concat(error));
-}
+  function comprobarGenero() {
+    var error = [];
+    var valorGenero = $('#gender').val();
+
+    if (valorGenero.value === "") {
+      error.push("Debe selecionar un genero");
+    }
+
+    ;
+    return error;
+  }
+
+  ;
+
+  function comprobarCheck() {
+    var error = [];
+    var valorCheck = $('#terms').is(":checked");
+
+    if (!valorCheck) {
+      error.push("Acepte los terminos");
+    }
+
+    return error;
+  }
+
+  ;
+
+  function divErrores() {
+    $(divErrors).appendChild('error');
+  }
+
+  ;
+});
 
 /***/ }),
 
-/***/ 2:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/validaciones/validacionTanque.js ***!
-  \*************************************************************/
+/***/ 3:
+/*!***************************************************************!*\
+  !*** multi ./resources/js/validaciones/validacionRegistro.js ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/validaciones/validacionTanque.js */"./resources/js/validaciones/validacionTanque.js");
+module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/validaciones/validacionRegistro.js */"./resources/js/validaciones/validacionRegistro.js");
 
 
 /***/ })

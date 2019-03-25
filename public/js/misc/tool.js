@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/toolTip/tool.js":
-/*!**************************************!*\
-  !*** ./resources/js/toolTip/tool.js ***!
-  \**************************************/
+/***/ "./resources/js/misc/tool.js":
+/*!***********************************!*\
+  !*** ./resources/js/misc/tool.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -105,13 +105,13 @@ $(function () {
 /***/ }),
 
 /***/ 1:
-/*!********************************************!*\
-  !*** multi ./resources/js/toolTip/tool.js ***!
-  \********************************************/
+/*!*****************************************!*\
+  !*** multi ./resources/js/misc/tool.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/toolTip/tool.js */"./resources/js/toolTip/tool.js");
+module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/misc/tool.js */"./resources/js/misc/tool.js");
 
 
 /***/ })

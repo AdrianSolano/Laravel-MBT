@@ -1,0 +1,24 @@
+.input,
+.inputinput {
+  border: solid 2px;
+}
+
+.titulo {
+  color: #124b01;
+}
+
+.inputCorrecto {
+  border-color: #0da80d;
+  background-color: #51d827;
+}
+
+.inputInCorrecto {
+  border-color: #550101;
+  background-color: #740202;
+}
+
+.inputNormal {
+  border-color: #124b01;
+  background-color: #f3b50b;
+}
+

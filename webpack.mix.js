@@ -13,8 +13,10 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
-   .js('resources/js/toolTip/tool.js', 'public/js/toolTip/')
-   .js('resources/js/validaciones/validacionTanque.js', 'public/js/validaciones/');;
+   .sass('resources/sass/validation/validation.scss', 'public/css/validation')
+   .js('resources/js/misc/tool.js', 'public/js/misc/')
+   .js('resources/js/validaciones/validacionTanque.js', 'public/js/validaciones/')
+   .js('resources/js/validaciones/validacionRegistro.js', 'public/js/validaciones/');
 
 
 

@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/toolTip/tool.js": "/js/toolTip/tool.js",
+    "/css/validation/validation.css": "/css/validation/validation.css",
+    "/js/misc/tool.js": "/js/misc/tool.js",
+    "/js/validaciones/validacionRegistro.js": "/js/validaciones/validacionRegistro.js",
     "/js/validaciones/validacionTanque.js": "/js/validaciones/validacionTanque.js"
 }
