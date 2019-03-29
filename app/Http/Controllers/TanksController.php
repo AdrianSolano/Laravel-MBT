@@ -174,4 +174,22 @@ class TanksController extends Controller
         return redirect('/tanks')
             ->with('message', "The tank '{$tank->name}' has been deleted.");
     }
+
+    public function editAjax(TankRequest $request,$idTank)
+    {   
+        $request->tank()->id;
+        $idTank->update([
+            'name' => request('name'),
+            'ammo_id' => request('publisher'),
+            'slug' => str_slug(request('name'), "-"),
+            'event' => request('event')
+        ]);
+        $idTank->authors()->sync(request('ammo'));
+        return redirect('/tanks/' . $idTank->slug);
+    }
+
+    public function crearTanqueAjax()
+    {
+        
+    }
 }

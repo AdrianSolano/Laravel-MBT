@@ -28,3 +28,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/{user}/tanks', 'UserTanksController@index')->name('usertanks.index');
 
+//JS
+//Route::post('/register/validation', 'Auth\RegisterController@validacionAjax');
+Route::post('/tanks/crearTanqueAjax','TanksController@crearTanqueAjax');
+Route::post('/tanks/eliminarTanqueAjax','TanksController@deleteAjax');
+Route::post('/tanks/buscarAjax','TanksController@obtenerTanquesAjax');
+Route::put('/tanks/editAjax','TanksController@editAjax');
