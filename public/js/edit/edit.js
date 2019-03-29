@@ -94,8 +94,8 @@
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
-  var inputSearch = document.getElementById('formulario');
-  inputSearch.addEventListener('submit', function (event) {
+  var formulario = document.getElementById('formulario');
+  formulario.addEventListener('submit', function (event) {
     event.preventDefault();
     editAjax();
   });

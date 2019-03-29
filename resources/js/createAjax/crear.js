@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     formulario.addEventListener('submit', function (event) {
         event.preventDefault();
         crearTanqueAjax();
+        mostrarModal();
     });
 
 
@@ -10,13 +11,17 @@ document.addEventListener('DOMContentLoaded', function () {
 function crearTanqueAjax() {
 
     let editForm = $("#formulario").serialize();
+    if ( $('#modal').modal('show'));
     axios.post('/tanks/crearTanqueAjax', editForm)
         .then(function (response) {
+            $('#modal').modal('hide');
+            alert(response.data);
             console.log(response);
-            alert("Create done");
+            /* //alert("Create done"); */
         }).catch(function (error) {
+            $('#modal').modal('hide');
             console.log(error);
             alert("Creatn't");
-        });
+        })
 
 }

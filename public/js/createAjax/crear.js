@@ -94,19 +94,24 @@
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
-  var inputSearch = document.getElementById('formulario');
-  inputSearch.addEventListener('submit', function (event) {
+  var formulario = document.getElementById('formulario');
+  formulario.addEventListener('submit', function (event) {
     event.preventDefault();
     crearTanqueAjax();
+    mostrarModal();
   });
 });
 
 function crearTanqueAjax() {
   var editForm = $("#formulario").serialize();
+  if ($('#modal').modal('show')) ;
   axios.post('/tanks/crearTanqueAjax', editForm).then(function (response) {
+    $('#modal').modal('hide');
+    alert(response.data);
     console.log(response);
-    alert("Create done");
+    /* //alert("Create done"); */
   }).catch(function (error) {
+    $('#modal').modal('hide');
     console.log(error);
     alert("Creatn't");
   });

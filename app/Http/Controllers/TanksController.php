@@ -190,6 +190,7 @@ class TanksController extends Controller
 
     public function crearTanqueAjax()
     {
-        
+        sleep(3);
+        return "EL TANQUE SE HA CREADO CORRECTAMENTE";
     }
 }
