@@ -10,7 +10,7 @@
 
     @include('public.tanks.partials.form')
 
-    <button type="submit" data-toggle="modal" data-target="#modal" class="btn btn-primary">Guardar</button>
+    <button type="submit" data-toggle="modal" data-backdrop="static" data-target="#modal" class="btn btn-primary">Guardar</button>
 </form>
 
 <!-- Modal -->
@@ -19,9 +19,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalLabel">Loading...</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <div class="modal-body">
                 <div class="progress">
