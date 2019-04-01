@@ -94,6 +94,10 @@
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
+  $('#formulario').submit(function (event) {
+    event.preventDefault();
+    validarTodoFormulario();
+  });
   $('#name').change(function (event) {
     comprobarNombre();
   });
@@ -112,105 +116,170 @@ document.addEventListener('DOMContentLoaded', function () {
   $('#terms').change(function (event) {
     comprobarCheck();
   });
-
-  function comprobarNombre() {
-    var esCorrecto = true;
-    var error = [];
-    var expresion = /^[a-zA-Z0-9]+$/g;
-    var valorNombre = $('#name').val();
-
-    if (!expresion.test(valorNombre.value)) {
-      error.push("El nombre no permite caracteres como !#@%&");
-      esCorrecto = false;
-    }
-
-    ;
-    error.forEach(function (x) {
-      return $("#erroresNombre").appendChild(x);
-    });
-    return esCorrecto;
-  }
-
-  ;
-
-  function comprobarEmail() {
-    var error = [];
-    var expresion = /^(?:(?:[\w`~!#$%^&*\-=+;:{}'|,?\/]+(?:(?:\.(?:"(?:\\?[\w`~!#$%^&*\-=+;:{}'|,?\/\.()<>\[\] @]|\\"|\\\\)*"|[\w`~!#$%^&*\-=+;:{}'|,?\/]+))*\.[\w`~!#$%^&*\-=+;:{}'|,?\/]+)?)|(?:"(?:\\?[\w`~!#$%^&*\-=+;:{}'|,?\/\.()<>\[\] @]|\\"|\\\\)+"))@(?:[a-zA-Z\d\-]+(?:\.[a-zA-Z\d\-]+)*|\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\])+$/g;
-    var valorEmail = $('email').val();
-
-    if (!expresion.test(valorEmail.value)) {
-      error.push("El email no permite caracteres como !#%&");
-    }
-
-    ;
-    return error;
-  }
-
-  ;
-
-  function comprobarContraseña() {
-    var error = [];
-    var expresion = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
-    var valorContraseña = $('#password').val();
-
-    if (!expresion.test(valorContraseña.value)) {
-      error.push("La contraseña no permite caracteres como !#@%& y mayor a 8 letras/numeros");
-    }
-
-    ;
-    return error;
-  }
-
-  ;
-
-  function comprobarContraseñaConfirmar() {
-    var error = [];
-    var valorContraseña = $('#password').val();
-    var valorContraseñaConfirmar = $('password-confirm').val();
-
-    if (!valorContraseñaConfirmar === valorContraseña) {
-      error.push('Las contraseñas no coinciden');
-    }
-
-    ;
-    return error;
-  }
-
-  ;
-
-  function comprobarGenero() {
-    var error = [];
-    var valorGenero = $('#gender').val();
-
-    if (valorGenero.value === "") {
-      error.push("Debe selecionar un genero");
-    }
-
-    ;
-    return error;
-  }
-
-  ;
-
-  function comprobarCheck() {
-    var error = [];
-    var valorCheck = $('#terms').is(":checked");
-
-    if (!valorCheck) {
-      error.push("Acepte los terminos");
-    }
-
-    return error;
-  }
-
-  ;
-
-  function divErrores() {
-    $(divErrors).appendChild('error');
-  }
-
-  ;
 });
+
+function comprobarNombre() {
+  var esCorrecto = true;
+  var error = [];
+  var expresion = /^[a-zA-Z0-9]+$/g;
+  var valorNombre = $('#name').val();
+  $('#name').removeClass('is-valid is-invalid');
+  $("#erroresNombre").empty();
+
+  if (!expresion.test(valorNombre)) {
+    error.push("El nombre no permite caracteres como !#@%&-");
+    esCorrecto = false;
+    $('#name').addClass('is-invalid');
+  } else {
+    $('#name').addClass('is-valid');
+  }
+
+  ;
+  error.forEach(function (x) {
+    return $("#erroresNombre").append(x);
+  });
+  return esCorrecto;
+}
+
+;
+
+function comprobarEmail() {
+  var esCorrecto = true;
+  var error = [];
+  var expresion = /[\w|.|-]*@\w*\.[\w|.]*/g;
+  var valorEmail = $('#email').val();
+  $('#email').removeClass('is-valid is-invalid');
+  $("#erroresEmail").empty();
+
+  if (!expresion.test(valorEmail)) {
+    error.push("El email no permite caracteres como !#%&- seleccione un email valido");
+    esCorrecto = false;
+    $('#email').addClass('is-invalid');
+  } else {
+    $('#email').addClass('is-valid');
+  }
+
+  ;
+  error.forEach(function (x) {
+    return $("#erroresEmail").append(x);
+  });
+  return esCorrecto;
+}
+
+;
+
+function comprobarContraseña() {
+  var esCorrecto = true;
+  var error = [];
+  var expresion = /^[a-zA-Z0-9].{8,}$/g;
+  var valorContraseña = $('#password').val();
+  $('#password').removeClass('is-valid is-invalid');
+  $("#erroresPass").empty();
+
+  if (!expresion.test(valorContraseña)) {
+    error.push("La contraseña no permite caracteres como !#@%& y mayor a 8 letras/numeros");
+    esCorrecto = false;
+    $('#password').addClass('is-invalid');
+  } else {
+    $('#password').addClass('is-valid');
+  }
+
+  ;
+  error.forEach(function (x) {
+    return $("#erroresPass").append(x);
+  });
+  return esCorrecto;
+}
+
+;
+
+function comprobarContraseñaConfirmar() {
+  var esCorrecto = true;
+  var error = [];
+  var valorContraseña = $('#password').val();
+  var valorContraseñaConfirmar = $('password-confirm').val();
+  $('#password-confirm').removeClass('is-valid is-invalid');
+  $("#erroresPassConfirm").empty();
+
+  if (!valorContraseñaConfirmar === valorContraseña) {
+    error.push('Las contraseñas no coinciden');
+    esCorrecto = false;
+    $('#password-confirm').addClass('is-invalid');
+  } else {
+    $('#password-confirm').addClass('is-valid');
+  }
+
+  ;
+  error.forEach(function (x) {
+    return $("#erroresPassConfirm").append(x);
+  });
+  return esCorrecto;
+}
+
+;
+
+function comprobarGenero() {
+  var esCorrecto = true;
+  var error = [];
+  var valorGenero = $('#gender').val();
+  $('#gender').removeClass('is-valid is-invalid');
+  $("#erroresGender").empty();
+
+  if (valorGenero === "#") {
+    error.push("Debe selecionar un genero");
+    esCorrecto = false;
+    $('#gender').addClass('is-invalid');
+  } else {
+    $('#gender').addClass('is-valid');
+  }
+
+  ;
+  error.forEach(function (x) {
+    return $("#erroresGender").append(x);
+  });
+  return esCorrecto;
+}
+
+;
+
+function comprobarCheck() {
+  var esCorrecto = true;
+  var error = [];
+  var valorCheck = $('#terms').is(":checked");
+  $('#terms').removeClass('is-valid is-invalid');
+  $("#erroresTerms").empty();
+
+  if (!valorCheck) {
+    error.push("Acepte los terminos");
+    esCorrecto = false;
+    $('#terms').addClass('is-invalid');
+  } else {
+    $('#terms').addClass('is-valid');
+  }
+
+  error.forEach(function (x) {
+    return $("#erroresTerms").append(x);
+  });
+  return esCorrecto;
+}
+
+;
+
+function validarTodoFormulario() {
+  var esNombreCorrecto = comprobarNombre();
+  var esEmailCorrecto = comprobarEmail();
+  var esContraseñaCorrecto = comprobarContraseña();
+  var esContraseñaConfirmadaCorrecto = comprobarContraseñaConfirmar();
+  var esGeneroCorrecto = comprobarGenero();
+  var esCheckBoxCorrecto = comprobarCheck();
+
+  if (esNombreCorrecto && esEmailCorrecto && esContraseñaCorrecto && esContraseñaConfirmadaCorrecto && esGeneroCorrecto && esCheckBoxCorrecto) {
+    var formulario = document.getElementById("formulario");
+    formulario.submit();
+  } else {
+    $('#modal').modal('toggle');
+  }
+}
 
 /***/ }),
 

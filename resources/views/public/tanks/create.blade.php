@@ -30,6 +30,13 @@
         </div>
     </div>
 </div>
+<!-- Alert -->
+<div id="alert" class="alert alert-success alert-dismissible fade hide" role="alert">
+  <strong>You created a tank</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
 
 @endsection
 @push('scripts')

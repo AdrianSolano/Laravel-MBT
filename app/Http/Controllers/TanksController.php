@@ -189,7 +189,10 @@ class TanksController extends Controller
     }
 
     public function crearTanqueAjax()
-    {
+    {   
+        $event = Event::all();
+        $ammo = Ammo::all();
+
         sleep(3);
         return "EL TANQUE SE HA CREADO CORRECTAMENTE";
     }

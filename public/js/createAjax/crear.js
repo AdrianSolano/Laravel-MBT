@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
   formulario.addEventListener('submit', function (event) {
     event.preventDefault();
     crearTanqueAjax();
-    mostrarModal();
+    despuesDeCrearAlerta();
   });
 });
 
@@ -106,14 +106,30 @@ function crearTanqueAjax() {
   var editForm = $("#formulario").serialize();
   if ($('#modal').modal('show')) ;
   axios.post('/tanks/crearTanqueAjax', editForm).then(function (response) {
-    $('#modal').modal('hide');
-    alert(response.data);
     console.log(response);
     /* //alert("Create done"); */
   }).catch(function (error) {
+    console.log(error);
+  }).then(function () {
     $('#modal').modal('hide');
+  });
+}
+
+function despuesDeCrearAlerta() {
+  var editForm = $('#formulario').serialize();
+  axios.post('/tanks/crearTanqueAjax', editForm).then(function (response) {
+    if ($('#alert').hasClass('hide')) {
+      $('#alert').removeClass('hide');
+      $('#alert').addClass('show');
+    }
+
+    ;
+    console.log(response);
+  }).catch(function (error) {
     console.log(error);
     alert("Creatn't");
+  }).then(function () {
+    $('#alert').modal('hide');
   });
 }
 

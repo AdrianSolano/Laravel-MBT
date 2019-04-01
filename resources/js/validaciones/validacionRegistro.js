@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    $('#formulario').submit(function (event) {
+        event.preventDefault();
+        validarTodoFormulario();
+    });
+
     $('#name').change(function (event) {
         comprobarNombre();
     });
@@ -16,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         comprobarContraseñaConfirmar();
     });
 
-    $('#gender').change(function(event){
+    $('#gender').change(function (event) {
         comprobarGenero();
     });
 
@@ -24,70 +29,129 @@ document.addEventListener('DOMContentLoaded', function () {
         comprobarCheck();
     });
 
-    function comprobarNombre() {
-        let esCorrecto = true;
-        let error = [];
-        let expresion = /^[a-zA-Z0-9]+$/g;
-        let valorNombre = $('#name').val(); 
-        if (!expresion.test(valorNombre.value)) {
-            error.push("El nombre no permite caracteres como !#@%&");
-            esCorrecto = false;
-        };
-        error.forEach( x =>  $("#erroresNombre").appendChild(x));
-        return esCorrecto;
+});
+
+function comprobarNombre() {
+    let esCorrecto = true;
+    let error = [];
+    let expresion = /^[a-zA-Z0-9]+$/g;
+    let valorNombre = $('#name').val();
+    $('#name').removeClass('is-valid is-invalid');
+    $("#erroresNombre").empty();
+    if (!expresion.test(valorNombre)) {
+        error.push("El nombre no permite caracteres como !#@%&-");
+        esCorrecto = false;
+        $('#name').addClass('is-invalid');
+    } else {
+        $('#name').addClass('is-valid');
     };
+    error.forEach(x => $("#erroresNombre").append(x));
+    return esCorrecto;
+};
 
-    function comprobarEmail(){
-        let error = [];
-        let expresion =/^(?:(?:[\w`~!#$%^&*\-=+;:{}'|,?\/]+(?:(?:\.(?:"(?:\\?[\w`~!#$%^&*\-=+;:{}'|,?\/\.()<>\[\] @]|\\"|\\\\)*"|[\w`~!#$%^&*\-=+;:{}'|,?\/]+))*\.[\w`~!#$%^&*\-=+;:{}'|,?\/]+)?)|(?:"(?:\\?[\w`~!#$%^&*\-=+;:{}'|,?\/\.()<>\[\] @]|\\"|\\\\)+"))@(?:[a-zA-Z\d\-]+(?:\.[a-zA-Z\d\-]+)*|\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\])+$/g;
-        let valorEmail = $('email').val();
-        if (!expresion.test(valorEmail.value)) {
-            error.push("El email no permite caracteres como !#%&");
-        };
-        return error;
+function comprobarEmail() {
+    let esCorrecto = true;
+    let error = [];
+    let expresion = /[\w|.|-]*@\w*\.[\w|.]*/g;
+    let valorEmail = $('#email').val();
+    $('#email').removeClass('is-valid is-invalid');
+    $("#erroresEmail").empty();
+    if (!expresion.test(valorEmail)) {
+        error.push("El email no permite caracteres como !#%&- seleccione un email valido");
+        esCorrecto = false;
+        $('#email').addClass('is-invalid');
+    } else {
+        $('#email').addClass('is-valid');
     };
+    error.forEach(x => $("#erroresEmail").append(x));
+    return esCorrecto;
+};
 
-    function comprobarContraseña() {
-        let error = [];
-        let expresion = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
-        let valorContraseña = $('#password').val(); 
-        if (!expresion.test(valorContraseña.value)) {
-            error.push("La contraseña no permite caracteres como !#@%& y mayor a 8 letras/numeros");
-        };
-        return error;
+function comprobarContraseña() {
+    let esCorrecto = true;
+    let error = [];
+    let expresion = /^[a-zA-Z0-9].{8,}$/g;
+    let valorContraseña = $('#password').val();
+    $('#password').removeClass('is-valid is-invalid');
+    $("#erroresPass").empty();
+    if (!expresion.test(valorContraseña)) {
+        error.push("La contraseña no permite caracteres como !#@%& y mayor a 8 letras/numeros");
+        esCorrecto = false;
+        $('#password').addClass('is-invalid');
+    } else {
+        $('#password').addClass('is-valid');
     };
+    error.forEach(x => $("#erroresPass").append(x));
+    return esCorrecto;
+};
 
-    function comprobarContraseñaConfirmar(){
-        let error = [];
-        let valorContraseña = $('#password').val();
-        let valorContraseñaConfirmar = $('password-confirm').val(); 
-        if(!valorContraseñaConfirmar === valorContraseña){
-            error.push('Las contraseñas no coinciden');
-        };
-        return error;
+function comprobarContraseñaConfirmar() {
+    let esCorrecto = true;
+    let error = [];
+    let valorContraseña = $('#password').val();
+    let valorContraseñaConfirmar = $('password-confirm').val();
+    $('#password-confirm').removeClass('is-valid is-invalid');
+    $("#erroresPassConfirm").empty();
+    if (!valorContraseñaConfirmar === valorContraseña) {
+        error.push('Las contraseñas no coinciden');
+        esCorrecto = false;
+        $('#password-confirm').addClass('is-invalid');
+    } else {
+        $('#password-confirm').addClass('is-valid');
     };
+    error.forEach(x => $("#erroresPassConfirm").append(x));
+    return esCorrecto;
+};
 
-    function comprobarGenero(){
-        let error = [];
-        let valorGenero = $('#gender').val();
-        if(valorGenero.value === ""){
-            error.push("Debe selecionar un genero");
-        };
-        return error;
+function comprobarGenero() {
+    let esCorrecto = true;
+    let error = [];
+    let valorGenero = $('#gender').val();
+    $('#gender').removeClass('is-valid is-invalid');
+    $("#erroresGender").empty();
+    if (valorGenero === "#") {
+        error.push("Debe selecionar un genero");
+        esCorrecto = false;
+        $('#gender').addClass('is-invalid');
+    } else {
+        $('#gender').addClass('is-valid');
     };
+    error.forEach(x => $("#erroresGender").append(x));
+    return esCorrecto;
+};
 
 
-    function comprobarCheck() {
-        let error = [];
-        let valorCheck = $('#terms').is(":checked");
-        if (!valorCheck) {
-            error.push("Acepte los terminos");
-        }
-        return error;
-    };
+function comprobarCheck() {
+    let esCorrecto = true;
+    let error = [];
+    let valorCheck = $('#terms').is(":checked");
+    $('#terms').removeClass('is-valid is-invalid');
+    $("#erroresTerms").empty();
+    if (!valorCheck) {
+        error.push("Acepte los terminos");
+        esCorrecto = false;
+        $('#terms').addClass('is-invalid');
+    } else {
+        $('#terms').addClass('is-valid');
+    }
+    error.forEach(x => $("#erroresTerms").append(x));
+    return esCorrecto;
+};
 
-    function divErrores(){
-        $(divErrors).appendChild('error');
-    };
+function validarTodoFormulario() {
+    let esNombreCorrecto = comprobarNombre();
+    let esEmailCorrecto = comprobarEmail();
+    let esContraseñaCorrecto = comprobarContraseña();
+    let esContraseñaConfirmadaCorrecto = comprobarContraseñaConfirmar();
+    let esGeneroCorrecto = comprobarGenero();
+    let esCheckBoxCorrecto = comprobarCheck();
 
-})
+    if (esNombreCorrecto && esEmailCorrecto && esContraseñaCorrecto && esContraseñaConfirmadaCorrecto && esGeneroCorrecto && esCheckBoxCorrecto) {
+        let formulario = document.getElementById("formulario");
+        formulario.submit();
+    }else{
+        $('#modal').modal('toggle');
+    }
+
+}
+
