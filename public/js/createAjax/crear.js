@@ -107,7 +107,6 @@ function crearTanqueAjax() {
   if ($('#modal').modal('show')) ;
   axios.post('/tanks/crearTanqueAjax', editForm).then(function (response) {
     console.log(response);
-    /* //alert("Create done"); */
   }).catch(function (error) {
     console.log(error);
   }).then(function () {
@@ -127,7 +126,6 @@ function despuesDeCrearAlerta() {
     console.log(response);
   }).catch(function (error) {
     console.log(error);
-    alert("Creatn't");
   }).then(function () {
     $('#alert').modal('hide');
   });
