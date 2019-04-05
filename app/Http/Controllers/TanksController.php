@@ -109,6 +109,7 @@ class TanksController extends Controller
        */
     public function edit(Tank $tank)
     {   
+
         $event = Event::all();
         $ammo = Ammo::all();
 
@@ -175,8 +176,9 @@ class TanksController extends Controller
             ->with('message', "The tank '{$tank->name}' has been deleted.");
     }
 
-    public function editAjax(TankRequest $request,$idTank)
+    public function editarAjax($idTank,Request $request)
     {   
+        sleep(3);
         $request->tank()->id;
         $idTank->update([
             'name' => request('name'),
