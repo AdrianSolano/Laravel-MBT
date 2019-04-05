@@ -2,7 +2,7 @@
 
 @section('title','EditTanks')
 @section('content')
-<form id="formulario" action="/tanks/{{ $tank->id }}" method="post" novalidate>
+<form data-tank="{{ $tank->id }}" id="formulario" action="/tanks/{{ $tank->id }}" method="post" novalidate>
 
     @csrf
     @method('patch')

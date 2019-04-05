@@ -1,0 +1,10 @@
+{
+    "/public/js/app.js": "/public/js/app.js",
+    "/public/css/app.css": "/public/css/app.css",
+    "/public/css/validation/validation.css": "/public/css/validation/validation.css",
+    "/public/js/createAjax/crear.js": "/public/js/createAjax/crear.js",
+    "/public/js/edit/edit.js": "/public/js/edit/edit.js",
+    "/public/js/misc/tool.js": "/public/js/misc/tool.js",
+    "/public/js/validaciones/validacionRegistro.js": "/public/js/validaciones/validacionRegistro.js",
+    "/public/js/validaciones/validacionTanque.js": "/public/js/validaciones/validacionTanque.js"
+}

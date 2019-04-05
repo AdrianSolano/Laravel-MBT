@@ -73,13 +73,18 @@
                                 </span>
                             </div>
                         </div>
-                        <!-- <div class="form-group">
-                            <label for="terms" class="col-md-4 col-form-label text-md-right">Terms</label>
-                            <input id="terms" type="checkbox" id="terms" class="form-control" name="terms" value="1" required />
-                            <span id="erroresTerms" class="invalid-feedback" role="alert">
+                        <div class="form-group row">
+                            <label for="age" class="col-md-4 col-form-label text-md-right">Age</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="age">
 
-                            </span>
-                        </div> -->
+
+                                <span id="erroresAge" class="invalid-feedback" role="alert">
+
+                                </span>
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <div class="custom-control custom-checkbox mb-0 col-md-6 offset-md-4">
@@ -120,4 +125,4 @@
 @endsection
 @push('scripts')
 <script src="{{ mix('/js/validaciones/validacionRegistro.js') }}" defer></script>
-@endpush 
+@endpush

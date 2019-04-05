@@ -113,6 +113,9 @@ document.addEventListener('DOMContentLoaded', function () {
   $('#gender').change(function (event) {
     comprobarGenero();
   });
+  $('#age').change(function (event) {
+    comprobarAge();
+  });
   $('#terms').change(function (event) {
     comprobarCheck();
   });
@@ -242,6 +245,30 @@ function comprobarGenero() {
 
 ;
 
+function comprobarAge() {
+  var esCorrecto = true;
+  var error = [];
+  var valorAge = $('#age').val();
+  $('#age').removeClass('is-valid is-invalid');
+  $("#erroresAge").empty();
+
+  if (valorAge < 18) {
+    error.push("Debe de ser mayor o igual que 18");
+    esCorrecto = false;
+    $('#age').addClass('is-invalid');
+  } else {
+    $('#age').addClass('is-valid');
+  }
+
+  ;
+  error.forEach(function (x) {
+    return $("#erroresAge").append(x);
+  });
+  return esCorrecto;
+}
+
+;
+
 function comprobarCheck() {
   var esCorrecto = true;
   var error = [];
@@ -272,8 +299,9 @@ function validarTodoFormulario() {
   var esContraseñaConfirmadaCorrecto = comprobarContraseñaConfirmar();
   var esGeneroCorrecto = comprobarGenero();
   var esCheckBoxCorrecto = comprobarCheck();
+  var esAgeCorrecto = comprobarAge();
 
-  if (esNombreCorrecto && esEmailCorrecto && esContraseñaCorrecto && esContraseñaConfirmadaCorrecto && esGeneroCorrecto && esCheckBoxCorrecto) {
+  if (esNombreCorrecto && esEmailCorrecto && esContraseñaCorrecto && esContraseñaConfirmadaCorrecto && esGeneroCorrecto && esCheckBoxCorrecto && esAgeCorrecto) {
     var formulario = document.getElementById("formulario");
     formulario.submit();
   } else {

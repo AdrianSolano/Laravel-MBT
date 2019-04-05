@@ -103,7 +103,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function editAjax() {
   var editForm = $("#formulario").serialize();
-  axios.put('/tanks/editAjax', editForm).then(function (response) {
+  var idTank = $("#formulario").attr("data-tank");
+  axios.put("/tanks/editAjax/".concat(idTank), editForm).then(function (response) {
     console.log(response);
     alert("Editus");
   }).catch(function (error) {

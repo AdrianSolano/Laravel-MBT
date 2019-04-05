@@ -33,4 +33,4 @@ Route::get('/users/{user}/tanks', 'UserTanksController@index')->name('usertanks.
 Route::post('/tanks/crearTanqueAjax','TanksController@crearTanqueAjax');
 Route::post('/tanks/eliminarTanqueAjax','TanksController@deleteAjax');
 Route::post('/tanks/buscarAjax','TanksController@obtenerTanquesAjax');
-Route::put('/tanks/editAjax','TanksController@editAjax');
+Route::put('/tanks/editAjax/{id}','TanksController@editAjax');

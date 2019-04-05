@@ -6,10 +6,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+
 function editAjax() {
 
     let editForm = $("#formulario").serialize();
-    axios.put('/tanks/editAjax', editForm)
+    let idTank = $("#formulario").attr("data-tank");
+
+    axios.put(`/tanks/editAjax/${idTank}`, editForm)
         .then(function (response) {
             console.log(response);
             alert("Editus");

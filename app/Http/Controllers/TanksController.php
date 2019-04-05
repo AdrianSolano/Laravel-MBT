@@ -180,18 +180,16 @@ class TanksController extends Controller
         $request->tank()->id;
         $idTank->update([
             'name' => request('name'),
-            'ammo_id' => request('publisher'),
+            'ammo_id' => request('ammo'),
             'slug' => str_slug(request('name'), "-"),
             'event' => request('event')
         ]);
-        $idTank->authors()->sync(request('ammo'));
+        $idTank->ammo()->sync(request('ammo'));
         return redirect('/tanks/' . $idTank->slug);
     }
 
     public function crearTanqueAjax()
     {   
-        $event = Event::all();
-        $ammo = Ammo::all();
 
         sleep(3);
         return "EL TANQUE SE HA CREADO CORRECTAMENTE";
