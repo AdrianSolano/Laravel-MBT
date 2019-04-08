@@ -3,6 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/css/validation/validation.css": "/css/validation/validation.css",
     "/js/createAjax/crear.js": "/js/createAjax/crear.js",
+    "/js/deleteAjax/delete.js": "/js/deleteAjax/delete.js",
     "/js/edit/edit.js": "/js/edit/edit.js",
     "/js/misc/tool.js": "/js/misc/tool.js",
     "/js/validaciones/validacionRegistro.js": "/js/validaciones/validacionRegistro.js",

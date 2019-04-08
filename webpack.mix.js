@@ -18,7 +18,8 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/validaciones/validacionTanque.js', 'public/js/validaciones/')
    .js('resources/js/validaciones/validacionRegistro.js', 'public/js/validaciones/')
    .js('resources/js/createAjax/crear.js', 'public/js/createAjax')
-   .js('resources/js/edit/edit.js', 'public/js/edit');
+   .js('resources/js/edit/edit.js', 'public/js/edit')
+   .js('resources/js/deleteAjax/delete.js', 'public/js/deleteAjax');
 
 
 

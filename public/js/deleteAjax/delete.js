@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/createAjax/crear.js":
-/*!******************************************!*\
-  !*** ./resources/js/createAjax/crear.js ***!
-  \******************************************/
+/***/ "./resources/js/deleteAjax/delete.js":
+/*!*******************************************!*\
+  !*** ./resources/js/deleteAjax/delete.js ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -97,52 +97,52 @@ document.addEventListener('DOMContentLoaded', function () {
   var formulario = document.getElementById('formulario');
   formulario.addEventListener('submit', function (event) {
     event.preventDefault();
-    crearTanqueAjax();
-    despuesDeCrearAlerta();
+    eliminarTanqueAjax();
+    despuesDeEliminarAlerta();
   });
 });
 
-function crearTanqueAjax() {
-  var editForm = $("#formulario").serialize();
-  if ($('#modal').modal('show')) ;
-  axios.post('/tanks/crearTanqueAjax', editForm).then(function (response) {
-    console.log(response);
-    $('#formulario').trigger("reset");
-  }).catch(function (error) {
-    console.log(error);
-  }).then(function () {
-    $('#modal').modal('hide');
+function alertaModel() {
+  $("form[data-accion='deletus']").on('submit', function (event) {
+    event.preventDefault();
+    alert('hola');
   });
 }
 
-function despuesDeCrearAlerta() {
-  var editForm = $('#formulario').serialize();
-  axios.post('/tanks/crearTanqueAjax', editForm).then(function (response) {
-    if ($('#alert').hasClass('hide')) {
-      $('#alert').removeClass('hide');
-      $('#alert').addClass('show');
-    }
+;
 
-    ;
-    $('#modalCrear').modal('show');
+function eliminarTanqueAjax() {
+  var datosFormulario = $("formulario").serialize();
+  var idTank = $("#formulario").attr("data-tank");
+  $('#modalEliminar').modal('show');
+  axios.post("/tanks/eliminarTanqueAjax/".concat(idTank), datosFormulario).then(function (response) {
+    if ($('#deletus').click(function () {
+      if ($('#alert').hasClass('hide')) {
+        $('#alert').removeClass('hide');
+        $('#alert').addClass('show');
+      }
+    })) ;
     console.log(response);
   }).catch(function (error) {
     console.log(error);
+    $('#modalError').modal('show');
+    $('#modalEliminar').modal('hide');
   }).then(function () {
     $('#alert').modal('hide');
+    $('#modalEliminar').modal('hide');
   });
 }
 
 /***/ }),
 
-/***/ 4:
-/*!************************************************!*\
-  !*** multi ./resources/js/createAjax/crear.js ***!
-  \************************************************/
+/***/ 6:
+/*!*************************************************!*\
+  !*** multi ./resources/js/deleteAjax/delete.js ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/createAjax/crear.js */"./resources/js/createAjax/crear.js");
+module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/deleteAjax/delete.js */"./resources/js/deleteAjax/delete.js");
 
 
 /***/ })

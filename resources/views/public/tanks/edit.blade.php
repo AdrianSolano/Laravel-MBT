@@ -10,7 +10,7 @@
 
     @include('public.tanks.partials.form')
 
-    <button id="botonSubmit" data-toggle="modal" data-target="#modal" data-target="#modalError" type="submit" class="btn btn-primary">Update tank</button>
+    <button id="botonSubmit" data-toggle="modal" data-target="#modal" data-target="#modalError" data-target="#modalEditar" type="submit" class="btn btn-primary">Update tank</button>
 </form>
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -37,6 +37,24 @@
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Tank edited
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="alert" class="alert alert-success alert-dismissible fade hide" role="alert">
+                    <strong>You edited a tank</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 @endsection

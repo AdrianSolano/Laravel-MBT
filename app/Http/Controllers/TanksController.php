@@ -163,8 +163,6 @@ class TanksController extends Controller
        */
     public function destroy(Tank $tank)
     {   
-
-    
         if( $tank->cover ){
             Storage::disk('public')->delete($tank->cover);
         }
@@ -176,18 +174,25 @@ class TanksController extends Controller
             ->with('message', "The tank '{$tank->name}' has been deleted.");
     }
 
+    public function eliminarTanqueAjax(Tank $tank)
+    {
+        sleep(3);
+    }
+
     public function editarAjax($idTank,Request $request)
     {   
         sleep(3);
-        $request->tank()->id;
+        /*$request->tank()->id;
         $idTank->update([
             'name' => request('name'),
             'ammo_id' => request('ammo'),
             'slug' => str_slug(request('name'), "-"),
             'event' => request('event')
         ]);
-        $idTank->ammo()->sync(request('ammo'));
-        return redirect('/tanks/' . $idTank->slug);
+        $idTank->ammo()->sync(request('ammo'));*/
+
+        //return redirect('/tanks/' . $idTank->slug);
+        
     }
 
     public function crearTanqueAjax()

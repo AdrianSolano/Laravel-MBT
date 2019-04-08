@@ -14,6 +14,10 @@
 </div>
 @endif
 
+<div id="alert" class="alert alert-success alert-dismissible fade hide" role="alert">
+     <strong>You deleted a tank</strong>
+</div>
+
 @forelse($tank as $tank)
 <div class="card-deck">
     <div class="card">
@@ -47,4 +51,7 @@
 @endforelse
 
 
-@endsection 
+@endsection
+@push('scripts')
+<script src="{{ mix('/js/deleteAjax/delete.js') }}" defer></script>
+@endpush

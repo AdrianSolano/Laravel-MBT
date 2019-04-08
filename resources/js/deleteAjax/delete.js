@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
+    let formulario = document.getElementById('formulario');
+    formulario.addEventListener('submit', function (event) {
+        event.preventDefault();
+        eliminarTanqueAjax();
+        despuesDeEliminarAlerta()
+    });
 
-    alertaModel();
-
-    eliminarBookAjax();
 });
-
 
 function alertaModel() {
     $("form[data-accion='deletus']").on('submit', function (event) {
@@ -13,14 +15,28 @@ function alertaModel() {
     })
 };
 
-function eliminarBookAjax() {
-    let datosFormulario = $("deletus").serialize();
-    axios.post('/tanks/eliminarTanqueAjax', datosFormulario)
+function eliminarTanqueAjax() {
+
+    let datosFormulario = $("formulario").serialize();
+    let idTank = $("#formulario").attr("data-tank");
+
+    $('#modalEliminar').modal('show');
+    axios.post(`/tanks/eliminarTanqueAjax/${idTank}`, datosFormulario)
         .then(function (response) {
+            if ($('#deletus').click(function() {
+                if ($('#alert').hasClass('hide')) {
+                    $('#alert').removeClass('hide')
+                    $('#alert').addClass('show');
+                }
+            }));
             console.log(response)
-            alert("deletus");
         }).catch(function (error) {
             console.log(error)
-            alert("Error");
+            $('#modalError').modal('show');
+            $('#modalEliminar').modal('hide');
+        }).then(function () {
+            $('#alert').modal('hide');
+            $('#modalEliminar').modal('hide');
         });
 }
+

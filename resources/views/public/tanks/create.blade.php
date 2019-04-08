@@ -10,10 +10,10 @@
 
     @include('public.tanks.partials.form')
 
-    <button type="submit" data-toggle="modal" data-backdrop="static" data-target="#modal" class="btn btn-primary">Guardar</button>
+    <button type="submit" data-toggle="modal" data-backdrop="static" data-target="#modal" data-target="#modalCrear" class="btn btn-primary">Guardar</button>
 </form>
 
-<!-- Modal -->
+<!-- Modal carga-->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -28,16 +28,28 @@
         </div>
     </div>
 </div>
-<!-- Alert -->
-<div id="alert" class="alert alert-success alert-dismissible fade hide" role="alert">
-  <strong>You created a tank</strong>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-</button>
+<!-- Alert crear-->
+<div class="modal fade" id="modalCrear" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Tank created
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="alert" class="alert alert-success alert-dismissible fade hide" role="alert">
+                    <strong>You created a tank</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 @endsection
 @push('scripts')
 <script src="{{ mix('/js/validaciones/validacionTanque.js') }}" defer></script>
 <script src="{{ mix('/js/createAjax/crear.js') }}" defer></script>
-@endpush 
+@endpush

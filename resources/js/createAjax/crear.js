@@ -15,6 +15,7 @@ function crearTanqueAjax() {
     axios.post('/tanks/crearTanqueAjax', editForm)
         .then(function (response) {
             console.log(response);
+            $('#formulario').trigger("reset");
         }).catch(function (error) {
             console.log(error);
         }).then(function(){
@@ -32,6 +33,7 @@ function despuesDeCrearAlerta() {
                 $('#alert').removeClass('hide')
                 $('#alert').addClass('show');
             };
+            $('#modalCrear').modal('show')
             console.log(response);
         }).catch(function (error) {
             console.log(error);
