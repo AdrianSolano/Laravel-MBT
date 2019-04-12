@@ -94,42 +94,27 @@
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
-  var formulario = document.getElementById('formulario');
-  formulario.addEventListener('submit', function (event) {
+  $("button[data-accion='delete']").click(function (event) {
+    var idTank = $(event.target).attr('data-tank');
     event.preventDefault();
+    $('#modalEliminar').modal('show');
+    $('#deletus').attr('data-tank', idTank);
+  });
+  var boton = $('#deletus');
+  boton.click(function () {
     eliminarTanqueAjax();
-    despuesDeEliminarAlerta();
   });
 });
 
-function alertaModel() {
-  $("form[data-accion='deletus']").on('submit', function (event) {
-    event.preventDefault();
-    alert('hola');
-  });
-}
-
-;
-
 function eliminarTanqueAjax() {
-  var datosFormulario = $("formulario").serialize();
-  var idTank = $("#formulario").attr("data-tank");
-  $('#modalEliminar').modal('show');
-  axios.post("/tanks/eliminarTanqueAjax/".concat(idTank), datosFormulario).then(function (response) {
-    if ($('#deletus').click(function () {
-      if ($('#alert').hasClass('hide')) {
-        $('#alert').removeClass('hide');
-        $('#alert').addClass('show');
-      }
-    })) ;
+  var idTank = $('#deletus').attr('data-tank');
+  $('#modalCarga').modal("show");
+  axios.delete("/tanks/eliminarTanqueAjax/".concat(idTank)).then(function (response) {
     console.log(response);
   }).catch(function (error) {
     console.log(error);
-    $('#modalError').modal('show');
-    $('#modalEliminar').modal('hide');
   }).then(function () {
-    $('#alert').modal('hide');
-    $('#modalEliminar').modal('hide');
+    $('#modalCarga').modal("hide");
   });
 }
 

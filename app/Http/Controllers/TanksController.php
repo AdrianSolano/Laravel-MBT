@@ -174,9 +174,16 @@ class TanksController extends Controller
             ->with('message', "The tank '{$tank->name}' has been deleted.");
     }
 
-    public function eliminarTanqueAjax(Tank $tank)
+    public function eliminarTanqueAjax($idTank)
     {
         sleep(3);
+        $tank = Tank::with('id');
+
+        $tank->delete();
+        $tank->ammo()->detach();
+
+        return "The tank '{$tank->name}' has been deleted";
+     
     }
 
     public function editarAjax($idTank,Request $request)
