@@ -103,6 +103,8 @@ class TanksController extends Controller
 
     public function showAjax($idTank, Request $request)
     {   
+        sleep(3);
+        
         $request->tank()->id;
 
         $tank = $idTank->ammo()->sync(request('id'));
