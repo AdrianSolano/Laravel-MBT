@@ -30,5 +30,5 @@
 @endsection
 
 @push('scripts')
-<script src="{{ mix('/js/toolTip/tool.js') }}" defer></script>
+<script src="{{ mix('/js/misc/tool.js') }}" defer></script>
 @endpush 

@@ -101,6 +101,15 @@ class TanksController extends Controller
         return view('public.tanks.show', ['tank' => $tank]);
     }
 
+    public function showAjax($idTank, Request $request)
+    {   
+        $request->tank()->id;
+
+        $tank = $idTank->ammo()->sync(request('id'));
+       
+        return view('public.tanks.show', ['tank' => $tank]);
+    }
+
     /**
        * Show the form for editing the specified resource.
        *

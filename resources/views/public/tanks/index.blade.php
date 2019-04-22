@@ -15,7 +15,7 @@
 @endif
 
 <div id="alert" class="alert alert-success alert-dismissible fade hide" role="alert">
-     <strong>You deleted a tank</strong>
+    <strong>You deleted a tank</strong>
 </div>
 
 @forelse($tank as $tank)
@@ -37,7 +37,7 @@
             <p class="card-text">
 
                 @include('public.tanks.partials.buttons')
-                <a href="/tanks/{{ $tank->slug }}" class="btn btn-primary btn-sm mr-2 float-right">More Info</a>
+                <button id="show" data-accion='show' data-tank="{{ $tank->id }}" href="/tanks/{{ $tank->slug }}" class="btn btn-primary btn-sm mr-2 float-right">More Info</button>
 
 
         </div>
@@ -87,8 +87,27 @@
     </div>
 </div>
 
+<div class="modal fade" id="modalShow" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>{{ $tank->name }}</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>{{ $tank->nation }}</h4>
+                <h4>{{ $tank->ammo}}</h4>
+                <h4>Event: {{ $tank->event->nameEvent }}</h4>
+                <p>{{ $tank->description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection
 @push('scripts')
 <script src="{{ mix('/js/deleteAjax/delete.js') }}" defer></script>
+<script src="{{ mix('/js/show/show.js') }}" defer></script>
 @endpush
