@@ -37,7 +37,7 @@
             <p class="card-text">
 
                 @include('public.tanks.partials.buttons')
-                <button id="show" data-accion='show' data-tank="{{ $tank->id }}" href="/tanks/{{ $tank->slug }}" class="btn btn-primary btn-sm mr-2 float-right">More Info</button>
+                <button id="show" data-accion='show' data-tank="{{ $tank->id }}"  class="btn btn-primary btn-sm mr-2 float-right">More Info</button>
 
 
         </div>
@@ -91,16 +91,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>{{ $tank->name }}</h3>
+                Tanque
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <h4>{{ $tank->nation }}</h4>
-                <h4>{{ $tank->ammo}}</h4>
-                <h4>Event: {{ $tank->event->nameEvent }}</h4>
-                <p>{{ $tank->description }}</p>
+               @include('public.tanks.partials.dataShow')
             </div>
         </div>
     </div>

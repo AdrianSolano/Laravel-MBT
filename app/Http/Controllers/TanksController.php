@@ -104,9 +104,10 @@ class TanksController extends Controller
     public function showAjax($idTank)
     {   
         sleep(3);
-        $idTank = Tank::with('id');
-       
-        return view('public.tanks.show', ['tank' => $idTank]);
+        $tank = Tank::where('id', $idTank)->firstOrFail();
+
+
+        return view('public.tanks.partials.dataShow', ['tank' => $tank]);
     }
 
     /**

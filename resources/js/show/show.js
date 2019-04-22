@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function showModal(idTank){
 
-    idTank = $("#show").attr("data-tank");
-
     $('#modalCarga').modal("show");
     axios.get(`/tanks/showAjax/${idTank}`)
         .then(function (response) {
