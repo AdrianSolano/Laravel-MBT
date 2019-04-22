@@ -1,25 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
     $("button[data-accion='show']").click(function (event) {
         let idTank = $(event.target).attr('data-tank');
-        $('#modalShow').modal('show')
-        $('#show').attr('data-tank', idTank);
+        showModal(idTank);
     });
-    let boton = $('#show');
-    boton.click(function () {
-        showModal();
-    });
-
 
 });
 
-function showModal(){
+function showModal(idTank){
 
-    let idTank = $("#show").attr("data-tank");
+    idTank = $("#show").attr("data-tank");
 
     $('#modalCarga').modal("show");
-    axios.get(`/tanks/show/${idTank}`)
+    axios.get(`/tanks/showAjax/${idTank}`)
         .then(function (response) {
-            console.log(response)
+            $('#modalCarga').modal("hide");
+            $('#modalShow').modal('show');
+            console.log(response);
         }).catch(function (error) {
             console.log(error)
         }).then(function () {

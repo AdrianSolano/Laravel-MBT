@@ -96,19 +96,16 @@
 document.addEventListener('DOMContentLoaded', function () {
   $("button[data-accion='show']").click(function (event) {
     var idTank = $(event.target).attr('data-tank');
-    $('#modalShow').modal('show');
-    $('#show').attr('data-tank', idTank);
-  });
-  var boton = $('#show');
-  boton.click(function () {
-    showModal();
+    showModal(idTank);
   });
 });
 
-function showModal() {
-  var idTank = $("#show").attr("data-tank");
+function showModal(idTank) {
+  idTank = $("#show").attr("data-tank");
   $('#modalCarga').modal("show");
-  axios.get("/tanks/show/".concat(idTank)).then(function (response) {
+  axios.get("/tanks/showAjax/".concat(idTank)).then(function (response) {
+    $('#modalCarga').modal("hide");
+    $('#modalShow').modal('show');
     console.log(response);
   }).catch(function (error) {
     console.log(error);

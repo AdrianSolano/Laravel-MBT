@@ -101,15 +101,12 @@ class TanksController extends Controller
         return view('public.tanks.show', ['tank' => $tank]);
     }
 
-    public function showAjax($idTank, Request $request)
+    public function showAjax($idTank)
     {   
         sleep(3);
-        
-        $request->tank()->id;
-
-        $tank = $idTank->ammo()->sync(request('id'));
+        $idTank = Tank::with('id');
        
-        return view('public.tanks.show', ['tank' => $tank]);
+        return view('public.tanks.show', ['tank' => $idTank]);
     }
 
     /**
