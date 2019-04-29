@@ -13,7 +13,9 @@ function showModal(idTank){
         .then(function (response) {
             $('#modalCarga').modal("hide");
             $('#modalShow').modal('show');
-            console.log(response);
+            $('#datos').html(response.data);
+            
+            //console.log(response);
         }).catch(function (error) {
             console.log(error)
         }).then(function () {

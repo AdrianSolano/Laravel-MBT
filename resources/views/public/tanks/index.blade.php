@@ -96,8 +96,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-               @include('public.tanks.partials.dataShow')
+            <div id="datos" class="modal-body">
+               
             </div>
         </div>
     </div>

@@ -3,8 +3,10 @@
     "/public/css/app.css": "/public/css/app.css",
     "/public/css/validation/validation.css": "/public/css/validation/validation.css",
     "/public/js/createAjax/crear.js": "/public/js/createAjax/crear.js",
+    "/public/js/deleteAjax/delete.js": "/public/js/deleteAjax/delete.js",
     "/public/js/edit/edit.js": "/public/js/edit/edit.js",
     "/public/js/misc/tool.js": "/public/js/misc/tool.js",
+    "/public/js/show/show.js": "/public/js/show/show.js",
     "/public/js/validaciones/validacionRegistro.js": "/public/js/validaciones/validacionRegistro.js",
     "/public/js/validaciones/validacionTanque.js": "/public/js/validaciones/validacionTanque.js"
 }

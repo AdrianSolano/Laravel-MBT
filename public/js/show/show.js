@@ -101,12 +101,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function showModal(idTank) {
-  idTank = $("#show").attr("data-tank");
   $('#modalCarga').modal("show");
   axios.get("/tanks/showAjax/".concat(idTank)).then(function (response) {
     $('#modalCarga').modal("hide");
     $('#modalShow').modal('show');
-    console.log(response);
+    $('#datos').html(response.data); //console.log(response);
   }).catch(function (error) {
     console.log(error);
   }).then(function () {
