@@ -112,10 +112,9 @@ function eliminarTanqueAjax() {
   $('#modalCarga').modal("show");
   axios.delete("/tanks/eliminarTanqueAjax/".concat(idTank)).then(function (response) {
     console.log(response);
-    $('#deletus').closest('.card').hide();
+    $("div[data-eliminar='".concat(idTank, "']")).remove();
   }).catch(function (error) {
     console.log(error);
-    $('#deletus').closest('.card').hide();
   }).then(function () {
     $('#modalCarga').modal("hide");
   });

@@ -186,10 +186,10 @@ class TanksController extends Controller
     public function eliminarTanqueAjax($idTank)
     {
         sleep(3);
-        $tank = Tank::where('id', $idTank)->firstOrFail();
+       $tank = Tank::where('id', $idTank)->firstOrFail();
 
-        $tank->delete();
-        $tank->ammo()->detach();
+        /* $tank->delete();
+        $tank->ammo()->detach(); */
 
         return "The tank '{$tank->name}' has been deleted";
      

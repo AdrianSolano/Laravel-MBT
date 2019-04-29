@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $('#modalEliminar').modal('show');
         $('#deletus').attr('data-tank', idTank);
     });
-    
+
     let boton = $('#deletus');
     boton.click(function () {
         eliminarTanqueAjax();
@@ -21,7 +21,7 @@ function eliminarTanqueAjax() {
     axios.delete(`/tanks/eliminarTanqueAjax/${idTank}`)
         .then(function (response) {
             console.log(response);
-            $('#deletus').closest('.card').hide();
+            $(`div[data-eliminar='${idTank}']`).remove();
         }).catch(function (error) {
             console.log(error)
         }).then(function () {

@@ -19,7 +19,7 @@
 </div>
 
 @forelse($tank as $tank)
-<div data-elimininar="" class="card-deck">
+<div data-eliminar="{{ $tank->id }}" class="card-deck">
     <div class="card">
         <div class="card-header">
             {{ $tank->name }}
