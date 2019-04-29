@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var boton = $('#deletus');
   boton.click(function () {
     eliminarTanqueAjax();
+    despuesDeCrearAlerta();
   });
 });
 
@@ -111,8 +112,31 @@ function eliminarTanqueAjax() {
   $('#modalCarga').modal("show");
   axios.delete("/tanks/eliminarTanqueAjax/".concat(idTank)).then(function (response) {
     console.log(response);
+    $('#deletus').closest('.card').hide();
   }).catch(function (error) {
     console.log(error);
+    $('#deletus').closest('.card').hide();
+  }).then(function () {
+    $('#modalCarga').modal("hide");
+  });
+}
+
+function despuesDeCrearAlerta() {
+  var idTank = $('#deletus').attr('data-tank');
+  axios.delete("/tanks/eliminarTanqueAjax/".concat(idTank)).then(function (response) {
+    if ($('#alert').hasClass('hide')) {
+      $('#alert').removeClass('hide');
+      $('#alert').addClass('show');
+    }
+
+    ;
+  }).catch(function (error) {
+    if ($('#alert').hasClass('hide')) {
+      $('#alert').removeClass('hide');
+      $('#alert').addClass('show');
+    }
+
+    ;
   }).then(function () {
     $('#modalCarga').modal("hide");
   });

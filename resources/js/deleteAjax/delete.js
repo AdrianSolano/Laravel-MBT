@@ -5,9 +5,11 @@ document.addEventListener('DOMContentLoaded', function () {
         $('#modalEliminar').modal('show');
         $('#deletus').attr('data-tank', idTank);
     });
+    
     let boton = $('#deletus');
     boton.click(function () {
         eliminarTanqueAjax();
+        despuesDeCrearAlerta();
     });
 
 });
@@ -18,7 +20,8 @@ function eliminarTanqueAjax() {
     $('#modalCarga').modal("show");
     axios.delete(`/tanks/eliminarTanqueAjax/${idTank}`)
         .then(function (response) {
-            console.log(response)
+            console.log(response);
+            $('#deletus').closest('.card').hide();
         }).catch(function (error) {
             console.log(error)
         }).then(function () {
@@ -26,3 +29,22 @@ function eliminarTanqueAjax() {
         });
 }
 
+function despuesDeCrearAlerta() {
+
+    let idTank = $('#deletus').attr('data-tank');
+    axios.delete(`/tanks/eliminarTanqueAjax/${idTank}`)
+        .then(function (response) {
+            if ($('#alert').hasClass('hide')) {
+                $('#alert').removeClass('hide')
+                $('#alert').addClass('show');
+            };
+        }).catch(function (error) {
+            if ($('#alert').hasClass('hide')) {
+                $('#alert').removeClass('hide')
+                $('#alert').addClass('show');
+            };
+
+        }).then(function () {
+            $('#modalCarga').modal("hide");
+        });
+}

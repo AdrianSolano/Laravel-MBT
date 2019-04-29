@@ -186,7 +186,7 @@ class TanksController extends Controller
     public function eliminarTanqueAjax($idTank)
     {
         sleep(3);
-        $tank = Tank::with('id');
+        $tank = Tank::where('id', $idTank)->firstOrFail();
 
         $tank->delete();
         $tank->ammo()->detach();
@@ -198,7 +198,7 @@ class TanksController extends Controller
     public function editarAjax($idTank,Request $request)
     {   
         sleep(3);
-        /*$request->tank()->id;
+        /* $request->tank()->id;
         $idTank->update([
             'name' => request('name'),
             'ammo_id' => request('ammo'),
