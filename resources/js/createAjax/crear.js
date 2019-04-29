@@ -18,6 +18,8 @@ function crearTanqueAjax() {
             $('#formulario').trigger("reset");
         }).catch(function (error) {
             console.log(error);
+            $('#modalError').modal('show');
+            $('#modal').modal('hide');
         }).then(function(){
             $('#modal').modal('hide');
         })

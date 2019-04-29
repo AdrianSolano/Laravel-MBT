@@ -24,6 +24,7 @@ function eliminarTanqueAjax() {
             $(`div[data-eliminar='${idTank}']`).remove();
         }).catch(function (error) {
             console.log(error)
+            $('#modalError').modal('show');
         }).then(function () {
             $('#modalCarga').modal("hide");
         });
