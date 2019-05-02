@@ -18,13 +18,11 @@
     <div class="form-group">
         <label for="busqueda">Buscar</label>
         <input id="busqueda" type="text">
-    </div>
-    <div class="form-group">
-        <label for="select">Select</label>
+        <label for="select">Filtro</label>
         <select id="selectBusqueda">
             <option value="#">----</option>
-            <option value="#1">1</option>
-            <option value="#2">2</option>
+            <option value="#Nation">Nation</option>
+            <option value="#Crew">Crew</option>
         </select>
     </div>
     <div class="form-group form-check">

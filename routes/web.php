@@ -21,7 +21,7 @@ Route::get('/ammo', 'PagesController@ammo')->name('ammo');
 Route::get('/profile', 'PagesController@profile')->name('profile');
 
 
-Route::resource('/tanks','TanksController');
+Route::resource('/tanks', 'TanksController');
 Route::resource('/event', 'EventController');
 
 Auth::routes();
@@ -32,8 +32,9 @@ Route::get('/users/{user}/tanks', 'UserTanksController@index')->name('usertanks.
 //JS
 Route::get('/miPerfil/{tab}', 'PagesController@miPerfil');
 //Route::post('/register/validation', 'Auth\RegisterController@validacionAjax');
-Route::post('/tanks/crearTanqueAjax','TanksController@crearTanqueAjax');
-Route::delete('/tanks/eliminarTanqueAjax/{id}','TanksController@eliminarTanqueAjax');
-Route::post('/tanks/buscarAjax','TanksController@obtenerTanquesAjax');
-Route::put('/tanks/editAjax/{id}','TanksController@editarAjax');
-Route::get('/tanks/showAjax/{id}','TanksController@showAjax');
+Route::post('/tanks/crearTanqueAjax', 'TanksController@crearTanqueAjax');
+Route::delete('/tanks/eliminarTanqueAjax/{id}', 'TanksController@eliminarTanqueAjax');
+Route::post('/tanks/buscarAjax', 'TanksController@obtenerTanquesAjax');
+Route::put('/tanks/editAjax/{id}', 'TanksController@editarAjax');
+Route::get('/tanks/showAjax/{id}', 'TanksController@showAjax');
+Route::post('/tanks/searchAjax', 'TanksController@searchAjax');

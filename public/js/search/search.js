@@ -93,7 +93,22 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+document.addEventListener('DOMContentLoaded', function () {
+  var searchForm = document.getElementById('searchForm');
+  searchForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    busquedaAjax();
+  });
+});
 
+function busquedaAjax() {
+  var searchForm = $("#searchForm").serialize();
+  axios.post('/tanks/searchAjax', searchForm).then(function (response) {
+    console.log(response);
+  }).catch(function (error) {
+    console.log(error);
+  });
+}
 
 /***/ }),
 
