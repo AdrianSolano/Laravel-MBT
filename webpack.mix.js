@@ -20,7 +20,9 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/createAjax/crear.js', 'public/js/createAjax')
    .js('resources/js/edit/edit.js', 'public/js/edit')
    .js('resources/js/deleteAjax/delete.js', 'public/js/deleteAjax')
-   .js('resources/js/show/show.js', 'public/js/show');
+   .js('resources/js/show/show.js', 'public/js/show')
+   .js('resources/js/show/profile.js', 'public/js/show')
+   .js('resources/js/search/search.js', 'public/js/search');
 
 
 

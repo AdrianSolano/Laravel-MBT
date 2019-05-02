@@ -18,6 +18,7 @@ Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/faq', 'PagesController@faq')->name('faq');
 Route::get('/privacypolicy', 'PagesController@privacypolicy')->name('privacypolicy');
 Route::get('/ammo', 'PagesController@ammo')->name('ammo');
+Route::get('/profile', 'PagesController@profile')->name('profile');
 
 
 Route::resource('/tanks','TanksController');
@@ -29,6 +30,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/{user}/tanks', 'UserTanksController@index')->name('usertanks.index');
 
 //JS
+Route::get('/miPerfil/{tab}', 'PagesController@miPerfil');
 //Route::post('/register/validation', 'Auth\RegisterController@validacionAjax');
 Route::post('/tanks/crearTanqueAjax','TanksController@crearTanqueAjax');
 Route::delete('/tanks/eliminarTanqueAjax/{id}','TanksController@eliminarTanqueAjax');

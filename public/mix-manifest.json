@@ -6,6 +6,8 @@
     "/js/deleteAjax/delete.js": "/js/deleteAjax/delete.js",
     "/js/edit/edit.js": "/js/edit/edit.js",
     "/js/misc/tool.js": "/js/misc/tool.js",
+    "/js/search/search.js": "/js/search/search.js",
+    "/js/show/profile.js": "/js/show/profile.js",
     "/js/show/show.js": "/js/show/show.js",
     "/js/validaciones/validacionRegistro.js": "/js/validaciones/validacionRegistro.js",
     "/js/validaciones/validacionTanque.js": "/js/validaciones/validacionTanque.js"

@@ -81,70 +81,51 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/createAjax/crear.js":
-/*!******************************************!*\
-  !*** ./resources/js/createAjax/crear.js ***!
-  \******************************************/
+/***/ "./resources/js/show/profile.js":
+/*!**************************************!*\
+  !*** ./resources/js/show/profile.js ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
-  var formulario = document.getElementById('formulario');
-  formulario.addEventListener('submit', function (event) {
-    event.preventDefault();
-    crearTanqueAjax();
-    despuesDeCrearAlerta();
+  asociarEventos();
+});
+
+function asociarEventos() {
+  var boton = $('#idAlerta');
+  boton.click(function () {
+    alerta();
+  });
+}
+
+$(function () {
+  $('#myTabPill a').on('show.bs.tab', function (e) {
+    var vista = $(e.target).attr("id");
+    axios.get("/miPerfil/".concat(vista)).then(function (response) {
+      $("#contenido").html(response.data);
+      asociarEventos();
+    }).catch(function (error) {
+      console.log(error);
+    });
   });
 });
 
-function crearTanqueAjax() {
-  var editForm = $("#formulario").serialize();
-  if ($('#modal').modal('show')) ;
-  axios.post('/tanks/crearTanqueAjax', editForm).then(function (response) {
-    console.log(response);
-    $('#formulario').trigger("reset");
-  }).catch(function (error) {
-    console.log(error);
-    $('#modalError').modal('show');
-    $('#modal').modal('hide');
-  }).then(function () {
-    $('#modal').modal('hide');
-  });
-}
-
-function despuesDeCrearAlerta() {
-  var editForm = $('#formulario').serialize();
-  axios.post('/tanks/crearTanqueAjax', editForm).then(function (response) {
-    if ($('#alert').hasClass('hide')) {
-      $('#alert').removeClass('hide');
-      $('#alert').addClass('show');
-    }
-
-    ;
-    $('#modalCrear').modal('show');
-    console.log(response);
-  }).catch(function (error) {
-    console.log(error);
-  }).then(function () {
-    $('#alert').modal('hide');
-  });
-}
-
 /***/ }),
 
-/***/ 4:
-/*!************************************************!*\
-  !*** multi ./resources/js/createAjax/crear.js ***!
-  \************************************************/
+/***/ 8:
+/*!********************************************!*\
+  !*** multi ./resources/js/show/profile.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/createAjax/crear.js */"./resources/js/createAjax/crear.js");
+module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/show/profile.js */"./resources/js/show/profile.js");
 
 
 /***/ })

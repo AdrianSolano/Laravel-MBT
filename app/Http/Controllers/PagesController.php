@@ -32,4 +32,12 @@ class PagesController extends Controller
     {
       return view('public.pages.exampleAmmo');
     }
+    public function profile()
+    {
+      return view('public.pages.profile.profile');
+    }
+    public function miPerfil($tab)
+    {
+      return view('public.pages.profile.'.$tab);
+    }
 }

@@ -14,6 +14,25 @@
 </div>
 @endif
 
+<form id="searchForm">
+    <div class="form-group">
+        <label for="busqueda">Buscar</label>
+        <input id="busqueda" type="text">
+    </div>
+    <div class="form-group">
+        <label for="select">Select</label>
+        <select id="selectBusqueda">
+            <option value="#">----</option>
+            <option value="#1">1</option>
+            <option value="#2">2</option>
+        </select>
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check</label>
+    </div>
+</form>
+
 <div id="alert" class="alert alert-success alert-dismissible fade hide" role="alert">
     <strong>You deleted a tank</strong>
 </div>
@@ -37,7 +56,7 @@
             <p class="card-text">
 
                 @include('public.tanks.partials.buttons')
-                <button id="show" data-accion='show' data-tank="{{ $tank->id }}"  class="btn btn-primary btn-sm mr-2 float-right">More Info</button>
+                <button id="show" data-accion='show' data-tank="{{ $tank->id }}" class="btn btn-primary btn-sm mr-2 float-right">More Info</button>
 
 
         </div>
@@ -97,7 +116,7 @@
                 </button>
             </div>
             <div id="datos" class="modal-body">
-               
+
             </div>
         </div>
     </div>
@@ -120,4 +139,5 @@
 @push('scripts')
 <script src="{{ mix('/js/deleteAjax/delete.js') }}" defer></script>
 <script src="{{ mix('/js/show/show.js') }}" defer></script>
+<script src="{{ mix('/js/search/search.js') }}" defer></script>
 @endpush

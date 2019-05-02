@@ -78,6 +78,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/privacypolicy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
                         <!-- <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                     <a href="#" class="nav-link"><i class="fa fa-cog fa-fw fa-lg"></i></a></li>
@@ -115,7 +118,6 @@
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="badge badge-light">{{ count(Auth::user()->unreadNotifications) }}</span><span class="caret"></span>
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
