@@ -38,9 +38,9 @@ function busquedaAjax() {
     axios.post('/tanks/searchAjax', searchForm)
         .then(function (response) {
             let divMostrarBusqueda = $("#mostrarBusqueda");
-            let tanks = response.data;
+            
             divMostrarBusqueda.empty();
-            divMostrarBusqueda.html(tanks);
+            divMostrarBusqueda.html(response.data);
             console.log(response);
         }).catch(function (error) {
             $('#modalError').modal('show');
