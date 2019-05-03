@@ -28,14 +28,24 @@
         </select>
 
     </div>
-    <div class="form-group form-check">
-        <input name="checkBox" type="checkbox" class="form-check-input" id="checkBox">
-        <label class="form-check-label" for="checkBox">Check</label>
+
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkBox" id="checkBox1" value="option1">
+        <label class="form-check-label" for="checkBox1">Ammo > 100</label>
     </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="checkBox2" value="option2">
+        <label class="form-check-label" for="checkBox2">Ammo < 30</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="checkBox3" value="option3">
+        <label class="form-check-label" for="checkBox3">Ammo < 10</label>
+    </div>
+    <div class="form-group">
     <button id="botonBuscar" class="btn btn-primary" type="submit">Buscar
         <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
     </button>
-
+</div>
 
 </form>
 
