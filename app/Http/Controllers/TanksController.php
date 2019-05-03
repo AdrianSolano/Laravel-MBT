@@ -231,7 +231,8 @@ class TanksController extends Controller
      */
 
     public function searchAjax()
-    {
+    {   
+        sleep(3);
         $tanks = Tank::where('name')->get();
         return view('public.tanks.partials.searchAjaxIndex', ['tanks' => $tanks]);
     }

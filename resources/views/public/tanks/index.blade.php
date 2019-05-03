@@ -16,20 +16,32 @@
 
 <form id="searchForm">
     <div class="form-group">
+
         <label for="busqueda">Buscar</label>
-        <input id="busqueda" type="text">
+        <input id="busqueda" class="form-control" type="text">
+
         <label for="select">Filtro</label>
-        <select id="selectBusqueda">
-            <option value="#">----</option>
-            <option value="#Nation">Nation</option>
-            <option value="#Crew">Crew</option>
+        <select id="selectBusqueda" class="form-control">
+            <option value="#">-----</option>
+            <option value="Nation">Nation</option>
+            <option value="Crew">Crew</option>
         </select>
+        
     </div>
     <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check</label>
+        <input type="checkbox" class="form-check-input" id="checkBox">
+        <label class="form-check-label" for="check">Check</label>
     </div>
+    <button id="botonBuscar" class="btn btn-primary" type="submit">Buscar
+        <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    </button>
+
+
 </form>
+
+<div id="mostrarBusqueda">
+
+</div>
 
 <div id="alert" class="alert alert-success alert-dismissible fade hide" role="alert">
     <strong>You deleted a tank</strong>

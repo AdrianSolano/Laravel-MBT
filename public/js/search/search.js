@@ -99,15 +99,51 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
     busquedaAjax();
   });
+  var selectForm = document.getElementById('selectBusqueda');
+  selectForm.addEventListener('change', function (event) {
+    busquedaAjax();
+  });
+  var checkForm = document.getElementById('checkBox');
+  checkForm.addEventListener('change', function (event) {
+    busquedaAjax();
+  });
+  var botonBuscar = $('#botonBuscar');
+  botonBuscar.click(function () {
+    busquedaAjax();
+    spinnerShow();
+  });
+  spinnerHide();
 });
+
+function spinnerHide() {
+  $("#spinner").hide();
+}
+
+function spinnerShow() {
+  $("#spinner").show();
+}
+
+;
 
 function busquedaAjax() {
   var searchForm = $("#searchForm").serialize();
+  $('#busqueda').val();
   axios.post('/tanks/searchAjax', searchForm).then(function (response) {
+    var divMostrarBusqueda = $("#mostrarBusqueda");
+    var tanks = response.data;
+    divMostrarBusqueda.empty();
+    divMostrarBusqueda.html(tanks);
     console.log(response);
   }).catch(function (error) {
+    $('#modalError').modal('show');
     console.log(error);
+  }).then(function (response) {
+    spinnerHide();
   });
+}
+
+function checkBox() {
+  $('#terms').is(":checked");
 }
 
 /***/ }),
