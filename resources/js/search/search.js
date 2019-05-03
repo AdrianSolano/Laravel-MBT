@@ -3,16 +3,25 @@ document.addEventListener('DOMContentLoaded', function () {
     searchForm.addEventListener('submit', function (event) {
         event.preventDefault();
         busquedaAjax();
+        spinnerShow();
+    });
+
+    let inputBusqueda = document.getElementById('busqueda');
+    inputBusqueda.addEventListener('change', function (event){
+        busquedaAjax();
+        spinnerShow();
     });
 
     let selectForm = document.getElementById('selectBusqueda');
     selectForm.addEventListener('change', function (event) {
         busquedaAjax();
+        spinnerShow();
     });
 
     let checkForm = document.getElementById('checkBox');
     checkForm.addEventListener('change', function (event) {
         busquedaAjax();
+        spinnerShow();
     });
 
     let botonBuscar = $('#botonBuscar');
@@ -38,10 +47,11 @@ function busquedaAjax() {
     axios.post('/tanks/searchAjax', searchForm)
         .then(function (response) {
             let divMostrarBusqueda = $("#mostrarBusqueda");
-            
+
             divMostrarBusqueda.empty();
             divMostrarBusqueda.html(response.data);
             console.log(response);
+            spinnerShow();
         }).catch(function (error) {
             $('#modalError').modal('show');
             console.log(error);

@@ -230,10 +230,12 @@ class TanksController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function searchAjax()
+    public function searchAjax(Request $request)
     {   
         sleep(3);
+        /* echo "BUSQUEDA:".request('busqueda'); */
+        
         $tanks = Tank::where('name')->get();
-        return view('public.tanks.partials.searchAjaxIndex', ['tanks' => $tanks]);
+        return view('public.tanks.index', ['tanks' => $tanks]);
     }
 }

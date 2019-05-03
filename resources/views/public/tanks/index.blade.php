@@ -18,19 +18,19 @@
     <div class="form-group">
 
         <label for="busqueda">Buscar</label>
-        <input id="busqueda" class="form-control" type="text">
+        <input id="busqueda" class="form-control" name="busqueda" type="text">
 
-        <label for="select">Filtro</label>
-        <select id="selectBusqueda" class="form-control">
+        <label for="selectBusqueda">Filtro</label>
+        <select id="selectBusqueda" class="form-control" name="selectBusqueda">
             <option value="#">-----</option>
             <option value="Nation">Nation</option>
             <option value="Crew">Crew</option>
         </select>
-        
+
     </div>
     <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="checkBox">
-        <label class="form-check-label" for="check">Check</label>
+        <input name="checkBox" type="checkbox" class="form-check-input" id="checkBox">
+        <label class="form-check-label" for="checkBox">Check</label>
     </div>
     <button id="botonBuscar" class="btn btn-primary" type="submit">Buscar
         <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
