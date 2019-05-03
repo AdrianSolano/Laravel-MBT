@@ -14,40 +14,39 @@
 </div>
 @endif
 
-<form id="searchForm">
-    <div class="form-group">
+<div class="form-row">
+    <form id="searchForm">
+        <div class="form-group">
+            <label for="busqueda">Buscar</label>
+            <input id="busqueda" class="form-control" name="busqueda" type="text">
 
-        <label for="busqueda">Buscar</label>
-        <input id="busqueda" class="form-control" name="busqueda" type="text">
+            <label for="selectBusqueda">Filtro</label>
+            <select id="selectBusqueda" class="form-control" name="selectBusqueda">
+                <option value="#">-----</option>
+                <option value="Nation">Nation</option>
+                <option value="Crew">Crew</option>
+            </select>
+        </div>
 
-        <label for="selectBusqueda">Filtro</label>
-        <select id="selectBusqueda" class="form-control" name="selectBusqueda">
-            <option value="#">-----</option>
-            <option value="Nation">Nation</option>
-            <option value="Crew">Crew</option>
-        </select>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkBox" id="checkBox1" value="option1">
+            <label class="form-check-label" for="checkBox1">Ammo > 100</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="checkBox2" value="option2">
+            <label class="form-check-label" for="checkBox2">Ammo < 30</label>
+        </div> 
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="checkBox3" value="option3">
+            <label class="form-check-label" for="checkBox3">Ammo < 10</label> 
+        </div> 
 
-    </div>
+        <button id="botonBuscar" class="btn btn-primary" type="submit">Buscar
+            <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
 
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkBox" id="checkBox1" value="option1">
-        <label class="form-check-label" for="checkBox1">Ammo > 100</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="checkBox2" value="option2">
-        <label class="form-check-label" for="checkBox2">Ammo < 30</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="checkBox3" value="option3">
-        <label class="form-check-label" for="checkBox3">Ammo < 10</label>
-    </div>
-    <div class="form-group">
-    <button id="botonBuscar" class="btn btn-primary" type="submit">Buscar
-        <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    </button>
+    </form>
 </div>
-
-</form>
 
 <div id="mostrarBusqueda">
 
