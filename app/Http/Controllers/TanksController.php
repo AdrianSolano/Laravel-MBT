@@ -234,8 +234,8 @@ class TanksController extends Controller
     {   
         sleep(3);
         /* echo "BUSQUEDA:".request('busqueda'); */
-        
-        $tanks = Tank::where('name')->get();
-        return view('public.tanks.index', ['tanks' => $tanks]);
+        $tanks = request('name');
+       /*  $tanks = Tank::where('name')->get(); */
+        return view('public.tanks.partials.searchAjaxIndex', ['tanks' => $tanks]);
     }
 }

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         spinnerShow();
     });
 
-    let checkForm = document.getElementById('checkBox');
+    let checkForm = document.getElementById('checkBox1');
     checkForm.addEventListener('change', function (event) {
         busquedaAjax();
         spinnerShow();
@@ -58,7 +58,4 @@ function busquedaAjax() {
         }).then(function (response) {
             spinnerHide()
         });
-}
-function checkBox(){
-    $('#terms').is(":checked");
 }
