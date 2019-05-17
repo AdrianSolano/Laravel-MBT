@@ -237,9 +237,19 @@ class TanksController extends Controller
        
         $name = request('busqueda');
 
-        $nation = request('Nation');
+        $filtro = NULL;
 
-        $tanks = Tank::where('name', 'like', "%{$name}%")->get();
+        if ($name !== ""){
+            $filtro =  Tank::where('name', 'like', "%{$name}%");    
+        }
+
+        $nation = request('selectBusqueda');
+        if($nation !== ""){
+            $filtro = Tank::where('nation', '=', $nation);
+        }
+        
+
+        $tanks = $filtro->get();
 
         return view('public.tanks.partials.searchAjaxIndex', ['tanks' => $tanks]);
     }

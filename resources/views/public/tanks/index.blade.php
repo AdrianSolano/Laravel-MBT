@@ -22,9 +22,11 @@
 
             <label for="selectBusqueda">Filtro</label>
             <select id="selectBusqueda" class="form-control" name="selectBusqueda">
-                <option value="#">-----</option>
-                <option value="Nation">Nation</option>
-                <option value="Crew">Crew</option>
+                <option value="">-----</option>
+                <option value="ES">ES</option>
+                <option value="LT">LT</option>
+                <option value="AR">AR</option>
+                 <option value="PL">PL</option>
             </select>
         </div>
 
