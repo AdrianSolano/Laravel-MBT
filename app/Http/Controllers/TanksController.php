@@ -231,11 +231,16 @@ class TanksController extends Controller
      */
 
     public function searchAjax(Request $request)
-    {   
+    {
         sleep(3);
         /* echo "BUSQUEDA:".request('busqueda'); */
-        $tanks = request('name');
-       /*  $tanks = Tank::where('name')->get(); */
+       
+        $name = request('busqueda');
+
+        $nation = request('Nation');
+
+        $tanks = Tank::where('name', 'like', "%{$name}%")->get();
+
         return view('public.tanks.partials.searchAjaxIndex', ['tanks' => $tanks]);
     }
 }

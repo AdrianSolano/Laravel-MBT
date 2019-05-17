@@ -24,6 +24,18 @@ document.addEventListener('DOMContentLoaded', function () {
         spinnerShow();
     });
 
+    let checkForm2 = document.getElementById('checkBox2');
+    checkForm2.addEventListener('change', function (event) {
+        busquedaAjax();
+        spinnerShow();
+    });
+
+    let checkForm3 = document.getElementById('checkBox3');
+    checkForm3.addEventListener('change', function (event) {
+        busquedaAjax();
+        spinnerShow();
+    });
+
     let botonBuscar = $('#botonBuscar');
     botonBuscar.click(function () {
         busquedaAjax();
