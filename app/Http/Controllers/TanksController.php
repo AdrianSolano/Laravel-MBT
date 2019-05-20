@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\TankRequest;
 use App\Notifications\TankCreated;
+use App\Http\Requests\TankAjaxRequest;
 
 class TanksController extends Controller
 {
@@ -264,5 +265,9 @@ class TanksController extends Controller
     public function paginateAjax(Request $request)
     {
         echo "Paginate";
+    }
+
+    protected function validacionTanqueAjax(TankAjaxRequest $request){
+        return array();
     }
 }
