@@ -18,7 +18,7 @@
 
 @empty
 
-<p>No hay tanques con ese nombre</p>
+<p>No hay tanques</p>
 
 @endforelse
 @push('scripts')

@@ -6,6 +6,7 @@
     "/js/deleteAjax/delete.js": "/js/deleteAjax/delete.js",
     "/js/edit/edit.js": "/js/edit/edit.js",
     "/js/misc/tool.js": "/js/misc/tool.js",
+    "/js/paginate/paginateAjax.js": "/js/paginate/paginateAjax.js",
     "/js/search/search.js": "/js/search/search.js",
     "/js/show/profile.js": "/js/show/profile.js",
     "/js/show/show.js": "/js/show/show.js",

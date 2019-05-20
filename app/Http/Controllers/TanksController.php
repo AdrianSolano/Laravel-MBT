@@ -253,4 +253,16 @@ class TanksController extends Controller
 
         return view('public.tanks.partials.searchAjaxIndex', ['tanks' => $tanks]);
     }
+
+     /**
+     * Paginate
+     *
+     * @param  \App\Tank  $tank
+     * @return \Illuminate\Http\Response
+     */
+
+    public function paginateAjax(Request $request)
+    {
+        echo "Paginate";
+    }
 }

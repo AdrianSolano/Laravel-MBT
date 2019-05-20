@@ -88,7 +88,14 @@
 
 <p>No hay tanques</p>
 
+{!! $tank->render() !!}
+
+
 @endforelse
+
+<div id="finalPagina" class="d-flex justify-content-center">
+    <span>Final de pagina</span>
+</div>
 
 <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -161,4 +168,5 @@
 <script src="{{ mix('/js/deleteAjax/delete.js') }}" defer></script>
 <script src="{{ mix('/js/show/show.js') }}" defer></script>
 <script src="{{ mix('/js/search/search.js') }}" defer></script>
+<script src="{{ mix('/js/paginate/paginateAjax.js') }}" defer></script>
 @endpush
