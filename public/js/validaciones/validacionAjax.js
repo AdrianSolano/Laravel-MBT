@@ -81,77 +81,74 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/deleteAjax/delete.js":
-/*!*******************************************!*\
-  !*** ./resources/js/deleteAjax/delete.js ***!
-  \*******************************************/
+/***/ "./resources/js/validaciones/validacionAjax.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/validaciones/validacionAjax.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
-  $("button[data-accion='delete']").click(function (event) {
-    var idTank = $(event.target).attr('data-tank');
+  var inputName = document.getElementById('nameEvent');
+  inputName.addEventListener('change', function (event) {
+    validarInput(event.target);
+  });
+  var inputYear = document.getElementById('year');
+  inputYear.addEventListener('change', function (event) {
+    validarInput(event.target);
+  });
+  var inputDesc = document.getElementById('description');
+  inputDesc.addEventListener('change', function (event) {
+    validarInput(event.target);
+  });
+  var form = document.getElementById('form');
+  form.addEventListener('submit', function (event) {
     event.preventDefault();
-    $('#modalEliminar').modal('show');
-    $('#deletus').attr('data-tank', idTank);
+    validarFormulario(event.target);
   });
-  var boton = $('#deletus');
-  boton.click(function () {
-    eliminarTanqueAjax();
-    despuesDeCrearAlerta();
-  });
+  spinnerHide();
 });
 
-function eliminarTanqueAjax() {
-  var idTank = $('#deletus').attr('data-tank');
-  $('#modalCarga').modal("show");
-  axios.delete("/tanks/eliminarTanqueAjax/".concat(idTank)).then(function (response) {
-    console.log(response);
-    $("div[data-eliminar='".concat(idTank, "']")).remove();
+function validarInput(input) {
+  var datosPost = {};
+  datosPost[input.name] = input.value;
+  spinnerShow();
+  axios.post('/event/crearEventoAjax', datosPost).then(function (response) {
+    spinnerShow();
+    errores(input, response.data[input.name]);
   }).catch(function (error) {
-    console.log(error);
     $('#modalError').modal('show');
+    console.log(error);
   }).then(function () {
-    $('#modalCarga').modal("hide");
+    spinnerHide();
   });
 }
 
-function despuesDeCrearAlerta() {
-  var idTank = $('#deletus').attr('data-tank');
-  axios.delete("/tanks/eliminarTanqueAjax/".concat(idTank)).then(function (response) {
-    if ($('#alert').hasClass('hide')) {
-      $('#alert').removeClass('hide');
-      $('#alert').addClass('show');
-    }
-
-    ;
-  }).catch(function (error) {
-    if ($('#alert').hasClass('hide')) {
-      $('#alert').removeClass('hide');
-      $('#alert').addClass('show');
-    }
-
-    ;
-  }).then(function () {
-    $('#modalCarga').modal("hide");
-  });
+function spinnerHide() {
+  $("#spinner").hide();
 }
+
+function spinnerShow() {
+  $("#spinner").show();
+}
+
+;
 
 /***/ }),
 
-/***/ 7:
-/*!*************************************************!*\
-  !*** multi ./resources/js/deleteAjax/delete.js ***!
-  \*************************************************/
+/***/ 4:
+/*!***********************************************************!*\
+  !*** multi ./resources/js/validaciones/validacionAjax.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/deleteAjax/delete.js */"./resources/js/deleteAjax/delete.js");
+module.exports = __webpack_require__(/*! /home/adrian/Sites/Laravel-MBT/resources/js/validaciones/validacionAjax.js */"./resources/js/validaciones/validacionAjax.js");
 
 
 /***/ })

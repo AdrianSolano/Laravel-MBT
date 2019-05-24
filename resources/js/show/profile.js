@@ -9,6 +9,10 @@ function asociarEventos() {
     });
 }
 
+function alerta(){
+    alert("Hola");
+}
+
 $(function () {
     $('#myTabPill a').on('show.bs.tab', function (e) {
         let vista = $(e.target).attr("id");

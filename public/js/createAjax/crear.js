@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function crearTanqueAjax() {
   var editForm = $("#formulario").serialize();
-  if ($('#modal').modal('show')) ;
+  $('#modal').modal('show');
   axios.post('/tanks/crearTanqueAjax', editForm).then(function (response) {
     console.log(response);
     $('#formulario').trigger("reset");
@@ -137,7 +137,7 @@ function despuesDeCrearAlerta() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!************************************************!*\
   !*** multi ./resources/js/createAjax/crear.js ***!
   \************************************************/

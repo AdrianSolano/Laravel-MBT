@@ -10,6 +10,7 @@
     "/js/search/search.js": "/js/search/search.js",
     "/js/show/profile.js": "/js/show/profile.js",
     "/js/show/show.js": "/js/show/show.js",
+    "/js/validaciones/validacionAjax.js": "/js/validaciones/validacionAjax.js",
     "/js/validaciones/validacionRegistro.js": "/js/validaciones/validacionRegistro.js",
     "/js/validaciones/validacionTanque.js": "/js/validaciones/validacionTanque.js"
 }

@@ -51,20 +51,4 @@ class TankAjaxRequest extends TankRequest
         return $rules;
     }
 
-    protected function failedValidation(Validator $validator)
-    {
-        $errores = $validator->errors();
-        $atributos = $this->attributes();
-        $listaErroresPorCampo = [];
-
-
-        foreach ($atributos as $atributo => $texto) {
-            if ($this->exists($atributo)) {
-                $listaErroresPorCampo[$atributo] = $errores->get($atributo);
-            }
-        }
-        $response = new JsonResponse($listaErroresPorCampo);
-
-        throw new ValidationException($validator, $response);
-    }
 }

@@ -7,6 +7,7 @@ use App\Tank;
 use App\Ammo;
 use Illuminate\Http\Request;
 use App\Http\Requests\EventRequest;
+use App\Http\Requests\EvenAjaxtRequest;
 
 class EventController extends Controller
 {
@@ -110,5 +111,16 @@ class EventController extends Controller
         $event->delete();
 
         return redirect('/');
+    }
+
+    protected function validarAjax(EvenAjaxtRequest $request){
+        return array();
+    }
+
+    public function crearEventoAjax()
+    {
+
+        sleep(3);
+        return "EL EVENTO SE HA CREADO CORRECTAMENTE";
     }
 }

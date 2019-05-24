@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function crearTanqueAjax() {
 
     let editForm = $("#formulario").serialize();
-    if ($('#modal').modal('show'));
+    $('#modal').modal('show');
     axios.post('/tanks/crearTanqueAjax', editForm)
         .then(function (response) {
             console.log(response);

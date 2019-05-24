@@ -189,9 +189,6 @@ class TanksController extends Controller
         sleep(3);
         $tank = Tank::where('id', $idTank)->firstOrFail();
 
-        /* $tank->delete();
-        $tank->ammo()->detach(); */
-
         return "The tank '{$tank->name}' has been deleted";
     }
 
@@ -262,12 +259,9 @@ class TanksController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function paginateAjax(Request $request)
+    public function paginateAjax()
     {
-        echo "Paginate";
+        echo "paginateAjax";
     }
 
-    protected function validacionTanqueAjax(TankAjaxRequest $request){
-        return array();
-    }
 }

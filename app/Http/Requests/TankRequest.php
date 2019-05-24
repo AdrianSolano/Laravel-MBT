@@ -23,7 +23,7 @@ class TankRequest extends FormRequest
      */
 
     public function rules()
-    { //Añadir variables para cada campo.
+    {
 
         $rules = array();
 
@@ -34,14 +34,6 @@ class TankRequest extends FormRequest
         $rules['description'] = $this->validarDescripcion();
 
         return $rules;
-
-        /* return [
-            'name'          => 'required|min:2',
-            'event'         =>  'required|exists:event,id',
-            'ammo'          => ['required', 'exists:ammo,id'],
-            'nation'        => 'required', 'min:2',
-            'description'   => 'required'
-        ]; */
     }
 
     public function messages()
