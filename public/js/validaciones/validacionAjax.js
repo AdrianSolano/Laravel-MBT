@@ -120,13 +120,52 @@ function validarInput(input) {
   spinnerShow();
   axios.post('/event/crearEventoAjax', datosPost).then(function (response) {
     spinnerShow();
-    errores(input, response.data[input.name]);
+    tieneErrores(input, response.data[input.name]);
   }).catch(function (error) {
     $('#modalError').modal('show');
     console.log(error);
   }).then(function () {
     spinnerHide();
   });
+}
+
+function tieneErrores(input, errores) {
+  var hayErrores = false;
+  var divErrores = $(input).next();
+  divErrores.html("");
+  $(input).removeClass("is-invalid is-valid");
+
+  if (errores === undefined || errores.length === 0) {
+    $(input).addClass("is-valid");
+  } else {
+    hayErrores = true;
+    $(input).addClass("is-invalid");
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = errores[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var error = _step.value;
+        divErrores.append("<div class=\"alert alert-danger\">".concat(error, "</div>"));
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return != null) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+  }
+
+  return hayErrores;
 }
 
 function spinnerHide() {

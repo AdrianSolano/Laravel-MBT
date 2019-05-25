@@ -39,4 +39,5 @@ Route::put('/tanks/editAjax/{id}', 'TanksController@editarAjax');
 Route::get('/tanks/showAjax/{id}', 'TanksController@showAjax');
 Route::post('/tanks/searchAjax', 'TanksController@searchAjax');
 Route::get('/tanks/paginateAjax/{num}', 'TanksController@paginateAjax');
-Route::post('/event/crearEventoAjax', 'EventController@crearEventoAjax');
+Route::post('/event/validarAjax', 'EventController@validarAjax');
+Route::post('/event/crearEventoAjax','EventController@crearEventoAjax');

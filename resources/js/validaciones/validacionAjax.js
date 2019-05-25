@@ -32,13 +32,31 @@ function validarInput(input) {
     axios.post('/event/crearEventoAjax', datosPost)
         .then(function (response) {
             spinnerShow();
-            errores(input, response.data[input.name]);
+            tieneErrores(input, response.data[input.name]);
         }).catch(function (error) {
             $('#modalError').modal('show');
             console.log(error);
         }).then(function () {
             spinnerHide();
         });
+}
+
+function tieneErrores(input,errores){
+    let hayErrores = false;
+    let divErrores = $(input).next();
+    divErrores.html("");
+    $(input).removeClass("is-invalid is-valid");
+
+    if (errores === undefined || errores.length === 0) {
+        $(input).addClass("is-valid");
+    } else {
+        hayErrores = true;
+        $(input).addClass("is-invalid");
+        for (let error of errores) {
+            divErrores.append(`<div class="alert alert-danger">${error}</div>`);
+        }
+    }
+    return hayErrores;
 }
 
 

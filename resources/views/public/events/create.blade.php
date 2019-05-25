@@ -4,7 +4,7 @@
 
 @section('content')
 <h1>Create Events</h1>
-<form id="form" action="/event" method="post">
+<form id="form" name="form" action="#" method="post" novalidate>
 
   @csrf
 
@@ -14,6 +14,10 @@
     <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
   </button>
 </form>
+
+<div class="eventData" id="eventData">
+
+</div>
 
 @endsection
 
