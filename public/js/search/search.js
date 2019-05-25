@@ -94,6 +94,7 @@
 /***/ (function(module, exports) {
 
 document.addEventListener('DOMContentLoaded', function () {
+  //Cogemos el formulario de busqueda
   var searchForm = document.getElementById('searchForm');
   searchForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -120,11 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
     busquedaAjax();
     spinnerShow();
   });
-  var checkForm3 = document.getElementById('checkBox3');
-  checkForm3.addEventListener('change', function (event) {
-    busquedaAjax();
-    spinnerShow();
-  });
   var botonBuscar = $('#botonBuscar');
   botonBuscar.click(function () {
     busquedaAjax();
@@ -141,7 +137,7 @@ function spinnerShow() {
   $("#spinner").show();
 }
 
-;
+; //Funcion que hace la peticion AJAX por axios
 
 function busquedaAjax() {
   var searchForm = $("#searchForm").serialize();

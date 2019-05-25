@@ -26,7 +26,7 @@
                 <option value="ES">ES</option>
                 <option value="LT">LT</option>
                 <option value="AR">AR</option>
-                 <option value="PL">PL</option>
+                <option value="PL">PL</option>
             </select>
         </div>
 
@@ -36,16 +36,13 @@
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="checkBox2" value="option2">
-            <label class="form-check-label" for="checkBox2">Ammo < 30</label>
-        </div> 
+            <label class="form-check-label" for="checkBox2">Ammo < 30</label> </div> <div class="form-check form-check-inline">
+        </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="checkBox3" value="option3">
-            <label class="form-check-label" for="checkBox3">Ammo < 10</label> 
-        </div> 
-
-        <button id="botonBuscar" class="btn btn-primary" type="submit">Buscar
-            <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-        </button>
+            <button id="botonBuscar" class="btn btn-primary" type="submit">Buscar
+                <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            </button>
+        </div>
 
     </form>
 </div>
@@ -91,10 +88,33 @@
 {!! $tank->render() !!}
 
 
+<div id="cargarTanques">
+    @include ("public.tanks.partials.tankPaginate")
+</div>
+
+
 @endforelse
 
-<div id="finalPagina" class="d-flex justify-content-center">
-    <span>Final de pagina</span>
+
+<div id="spinner" class="d-flex justify-content-center">
+    <span id="spinner" class="spinner-border spinner-border-sm d-flex justify-content-center" role="status" aria-hidden="true"></span>
+</div>
+
+
+<div class="modal fade" id="modalTanquesPag" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                Carga de tanques.
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                No quedan mas tanques que mostrar
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">

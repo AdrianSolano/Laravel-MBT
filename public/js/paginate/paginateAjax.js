@@ -95,22 +95,49 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   paginateAjax();
+  spinnerHide();
 });
 
 function paginateAjax() {
-  $(window).scroll(function () {
-    if ($(window).scrollTop() + $(window).height() > $(document).height()) {
-      $(window).unbind('scroll');
-      axios.get("/tanks/paginateAjax/") //
-      .then(function (response) {
-        if (response.data == "") {//Modal
+  var cont = 5;
+  var margen = .1;
+  spinnerHide();
+  $(function () {
+    $(window).on("scroll", finalPagina);
+  });
+
+  function finalPagina() {
+    if (margen > $(document).height() - $(window).scrollTop() - $(window).height()) {
+      cont = cont + 5;
+      spinnerShow();
+      axios.get("/tanks/paginateAjax/".concat(cont)).then(function (response) {
+        if (response.data == "") {
+          $('#modalTanquesPag').modal('show');
+        } else {
+          $('#cargarTanques').append(response.data);
         }
+
+        spinnerHide();
       }).catch(function (error) {
-        console.log(error); //alert("Error");
+        console.log(error);
+        $('#modalError').modal('show');
+        spinnerHide();
+      }).then(function (response) {
+        spinnerHide();
       });
     }
-  });
+  }
 }
+
+function spinnerHide() {
+  $("#spinner").hide();
+}
+
+function spinnerShow() {
+  $("#spinner").show();
+}
+
+;
 
 /***/ }),
 

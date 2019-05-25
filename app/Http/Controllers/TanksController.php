@@ -259,9 +259,15 @@ class TanksController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function paginateAjax()
+    public function paginateAjax($numElementos)
     {
-        echo "paginateAjax";
+        $tank = Tank::skip($numElementos)->take(5)->get();
+        sleep(3);
+        $vista = ""; 
+        if(count($tank) > 0){
+                $vista = view('public.tanks.partials.tankPaginate',['tanks' => $tank]);
+        }
+        return $vista;
     }
 
 }

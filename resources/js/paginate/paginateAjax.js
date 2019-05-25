@@ -1,23 +1,48 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     paginateAjax();
+    spinnerHide();
 
 })
 
 function paginateAjax() {
-    $(window).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() > $(document).height()) {
-            $(window).unbind('scroll');
-            axios.get(`/tanks/paginateAjax/`)//
+    let cont = 5;
+    const margen = .1;
+    spinnerHide();
+    $(function () {
+        $(window).on("scroll", finalPagina)
+    })
+    function finalPagina() {
+        if (margen > $(document).height() - $(window).scrollTop() - $(window).height()) {
+            cont = cont + 5;
+            spinnerShow();
+            axios.get(`/tanks/paginateAjax/${cont}`)
                 .then(function (response) {
                     if (response.data == "") {
-                        //Modal
+                        $('#modalTanquesPag').modal('show');
+                    } else {
+                        $('#cargarTanques').append(response.data);
                     }
+                    spinnerHide();
                 })
                 .catch(function (error) {
                     console.log(error);
-                    //alert("Error");
+                    $('#modalError').modal('show');
+                    spinnerHide();
+                })
+                .then(function (response) {
+                    spinnerHide();
                 })
         }
-    });
+    }
+
 }
+
+
+function spinnerHide() {
+    $("#spinner").hide();
+}
+
+function spinnerShow() {
+    $("#spinner").show();
+};

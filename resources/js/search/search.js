@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+     //Cogemos el formulario de busqueda
     let searchForm = document.getElementById('searchForm');
     searchForm.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -30,12 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
         spinnerShow();
     });
 
-    let checkForm3 = document.getElementById('checkBox3');
-    checkForm3.addEventListener('change', function (event) {
-        busquedaAjax();
-        spinnerShow();
-    });
-
     let botonBuscar = $('#botonBuscar');
     botonBuscar.click(function () {
         busquedaAjax();
@@ -51,7 +46,7 @@ function spinnerHide() {
 function spinnerShow() {
     $("#spinner").show();
 };
-
+//Funcion que hace la peticion AJAX por axios
 function busquedaAjax() {
 
     let searchForm = $("#searchForm").serialize();
