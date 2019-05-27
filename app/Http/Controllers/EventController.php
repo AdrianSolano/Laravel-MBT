@@ -121,6 +121,6 @@ class EventController extends Controller
     {
 
         sleep(2);
-        return array();
+        return "Evento creado";
     }
 }

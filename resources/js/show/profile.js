@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     asociarEventos();
 });
-
+/* boton de alerta para el perfil */
 function asociarEventos() {
     let boton = $('#idAlerta');
     boton.click(function () {
@@ -12,7 +12,7 @@ function asociarEventos() {
 function alerta(){
     alert("Hola");
 }
-
+/* Funcion que cambia de pestaña en el perfil mediante ajax */
 $(function () {
     $('#myTabPill a').on('show.bs.tab', function (e) {
         let vista = $(e.target).attr("id");

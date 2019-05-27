@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+/* "Crear" con ajax */
 function crearTanqueAjax() {
 
     let editForm = $("#formulario").serialize();
@@ -25,7 +26,7 @@ function crearTanqueAjax() {
         })
 
 }
-
+/* lanza una alerta dentro del modal */
 function despuesDeCrearAlerta() {
 
     let editForm = $('#formulario').serialize();

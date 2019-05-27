@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
-
+/* Eliminar con ajax */
 function eliminarTanqueAjax() {
 
     let idTank = $('#deletus').attr('data-tank');
@@ -29,7 +29,7 @@ function eliminarTanqueAjax() {
             $('#modalCarga').modal("hide");
         });
 }
-
+/* lanza una alerta dentro del modal */
 function despuesDeCrearAlerta() {
 
     let idTank = $('#deletus').attr('data-tank');

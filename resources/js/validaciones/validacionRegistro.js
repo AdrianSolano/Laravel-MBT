@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+/* Se recogen los inputs y el formulario */
     $('#formulario').submit(function (event) {
         event.preventDefault();
         validarTodoFormulario();
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
-
+/* Funcion que valida el nombre  */
 function comprobarNombre() {
     let esCorrecto = true;
     let error = [];
@@ -52,7 +52,7 @@ function comprobarNombre() {
     error.forEach(x => $("#erroresNombre").append(x));
     return esCorrecto;
 };
-
+/* Funcion que valida el email  */
 function comprobarEmail() {
     let esCorrecto = true;
     let error = [];
@@ -70,7 +70,7 @@ function comprobarEmail() {
     error.forEach(x => $("#erroresEmail").append(x));
     return esCorrecto;
 };
-
+/* Funcion que valida la contraseña  */
 function comprobarContraseña() {
     let esCorrecto = true;
     let error = [];
@@ -88,7 +88,7 @@ function comprobarContraseña() {
     error.forEach(x => $("#erroresPass").append(x));
     return esCorrecto;
 };
-
+/* Funcion que valida el confirma la valided de la contraseña puesta en el siguiente input */
 function comprobarContraseñaConfirmar() {
     let esCorrecto = true;
     let error = [];
@@ -106,7 +106,7 @@ function comprobarContraseñaConfirmar() {
     error.forEach(x => $("#erroresPassConfirm").append(x));
     return esCorrecto;
 };
-
+/* Funcion que valida el genero  */
 function comprobarGenero() {
     let esCorrecto = true;
     let error = [];
@@ -123,7 +123,7 @@ function comprobarGenero() {
     error.forEach(x => $("#erroresGender").append(x));
     return esCorrecto;
 };
-
+/* Funcion que valida la edad  */
 function comprobarAge() {
     let esCorrecto = true;
     let error = [];
@@ -141,7 +141,7 @@ function comprobarAge() {
     return esCorrecto;
 };
 
-
+/* Funcion que valida el checkbox  */
 function comprobarCheck() {
     let esCorrecto = true;
     let error = [];
@@ -158,7 +158,7 @@ function comprobarCheck() {
     error.forEach(x => $("#erroresTerms").append(x));
     return esCorrecto;
 };
-
+/* Funcion final que valida todo el formulario lo que permite el submit  */
 function validarTodoFormulario() {
     let esNombreCorrecto = comprobarNombre();
     let esEmailCorrecto = comprobarEmail();

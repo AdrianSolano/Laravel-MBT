@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     spinnerHide();
 
 })
-
+/* Paginacion con ajax */
 function paginateAjax() {
     let cont = 5;
     const margen = .1;

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-
+/* Edicion mediante ajax */
 function editAjax() {
 
     let editForm = $("#formulario").serialize();
@@ -27,7 +27,7 @@ function editAjax() {
         })
 
 }
-
+/* lanza una alerta dentro del modal */
 function despuesDeEditarAlerta() {
 
     let editForm = $('#formulario').serialize();

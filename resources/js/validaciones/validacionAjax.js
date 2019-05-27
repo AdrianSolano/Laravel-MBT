@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+/* Se recogen los inputs y el formulario */
     let inputName = document.getElementById('nameEvent');
     inputName.addEventListener('change', function (event) {
         validarInput(event.target);
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     spinnerHide();
 
 })
+/* Con esta funcion validamos los campos */
 function validarInput(input) {
     let datosPost = {};
 
@@ -40,7 +41,7 @@ function validarInput(input) {
             spinnerHide();
         });
 }
-
+/* Esta funcion comprueba los campos y cambia las clases  para mostrar los errores */
 function tieneErrores(input,errores){
     let hayErrores = false;
     let divErrores = $(input).next();
