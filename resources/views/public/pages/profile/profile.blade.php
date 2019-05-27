@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Profiel IBDB')
+@section('title', 'Profiel ')
 
 @section('content')
 <h1>Perfil</h1>

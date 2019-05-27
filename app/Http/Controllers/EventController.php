@@ -117,7 +117,7 @@ class EventController extends Controller
         return array();
     }
 
-    public function crearEventoAjax(EvenAjaxRequest $request)
+    public function crearEventoAjax(EventRequest $request)
     {
 
         sleep(2);
